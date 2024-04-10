@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Navbar() {
   return (
-    <div className=' fixed -top-10  w-full text-white p-2'>
+    <div className=' absolute -top-10 md:block hidden  w-full text-white p-2'>
 <div className=' w-full h-full flex justify-between items-center '>
 <Image
 src={"/Blue Simple Classic Property Real Estate Logo 2.png"}
