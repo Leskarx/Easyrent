@@ -2,11 +2,13 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image';
+import AlreadySection from '../utils/AlreadySection';
+import OtherLogin from '../utils/OtherLogin';
 
 export default function GettingStart() {
   return (
-    <div className='md:hidden z-50 p-4 w-full h-screen flex flex-col pt-16   bg-white'>
-<div className=' w-full flex flex-col gap-10  mb-20 '>
+    <div className='md:hidden z-50 p-4 w-full h-screen flex flex-col pt-24   bg-white'>
+<div className=' w-full flex flex-col gap-16 '>
 <section className=' w-full flex flex-col gap-3'>
         <Image
         // style={{
@@ -32,19 +34,13 @@ export default function GettingStart() {
        </div>
 
       </section>
-      <section className='  w-full flex flex-col gap-1 '>
+      <section className='  w-full flex flex-col gap-8 '>
 <p className=' font-semibold text-xl'>Let’s Get Started...</p>
- <div className='p-5 border-black border rounded-lg w-full '>GOOGLE</div>
+<OtherLogin des="Continue with Google"/>
 
       </section>
-      <section className=' self-center font-medium text-xl  w-max '>
-        <p>
-        Already have an account?
-      <span className=' cursor-pointer underline text-red-600 '>  <Link href={"/login"}>
-       Login
-        </Link></span>
-        </p>
-      </section>
+     <AlreadySection link='/login' des="Already had an account?" buttonTitle="Login"/>
+     
 </div>
 
       
