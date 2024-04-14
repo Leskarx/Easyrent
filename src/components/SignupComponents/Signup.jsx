@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import AlreadySection from '../utils/AlreadySection'
 import InputBox from '../utils/InputBox'
