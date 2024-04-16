@@ -4,8 +4,11 @@ import AlreadySection from '../utils/AlreadySection'
 import InputBox from '../utils/InputBox'
 import MainSection from '../utils/MainSection'
 import { useForm } from "react-hook-form"
-
+import { signIn} from "next-auth/react"
+import { toast } from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 export default function Login() {
+  const router=useRouter()
   const {
     register,
     handleSubmit,
@@ -16,8 +19,24 @@ export default function Login() {
     password:""
   })
 
-  function onSubmit(data){
-    console.log(data)
+  async function onSubmit(data){
+  try {
+    const isLogin=await signIn("credentials",{...data,redirect:false})
+    console.log(isLogin);
+    if(isLogin.ok){
+      toast.success("Login successfull")
+      router.push("/")
+    }else{
+      toast.error("something went wrong")
+    }
+   
+    
+  } catch (error) {
+    toast.error("something went wrong please refresh")
+    
+  }
+   
+    
   }
 
   const footer=(

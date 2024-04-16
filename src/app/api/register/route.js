@@ -14,11 +14,11 @@ export async function POST(request) {
         })
         return NextResponse.json({
             message: "user created success",
-            data: user
+            userData: user
         })
 
     } catch (error) {
-        throw new Error("error")
+        throw new Error("error in register route.js")
 
     }
 
