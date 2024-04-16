@@ -4,8 +4,12 @@ import AlreadySection from '../utils/AlreadySection'
 import InputBox from '../utils/InputBox'
 import MainSection from '../utils/MainSection'
 import { useForm } from "react-hook-form"
+import axios from 'axios'
+import { toast } from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 
 export default function Signup() {
+  const router=useRouter()
   const {
     register,
     handleSubmit,
@@ -18,8 +22,16 @@ export default function Signup() {
     password:"",
 
   })
-  function onSubmit(data){
-    console.log(data)
+  async function onSubmit(data){
+  try {
+    const user=await axios.post("/api/register",data)
+    toast.success("successfully created a account")
+    router.push("/login")
+    console.log(user);
+  } catch (error) {
+    toast.error("something is wrong")
+  }
+   
   }
     const footer=(
         <>
