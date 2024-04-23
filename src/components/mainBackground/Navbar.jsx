@@ -2,8 +2,9 @@
 import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { signOut } from 'next-auth/react';
 
-export default function Navbar() {
+export default function Navbar({user}) {
   const router=useRouter();
   return (
     <div className=' absolute -top-10 md:block hidden  w-full text-white p-2'>
@@ -19,9 +20,15 @@ height={70}
 />
 
 <ul className=' flex gap-10 mr-2 '>
-    <li className=' cursor-pointer' onClick={()=>{
-      router.push("/login")
-    }}>Login/SignUp</li>
+ {
+ user?<li className=' cursor-pointer' onClick={()=>{
+ signOut()
+}}>Logout</li> : <li className=' cursor-pointer' onClick={()=>{
+  router.push("/login")
+}}>Login/SignUp</li>
+ }
+ 
+  
     <li  className=' cursor-pointer'>Legal</li>
     <li  className=' cursor-pointer'>Support</li>
     <li  className=' cursor-pointer'>About Us</li>

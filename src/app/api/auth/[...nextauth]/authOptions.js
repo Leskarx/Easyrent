@@ -22,14 +22,19 @@ export const authOption = {
                 }
 
 
-                console.log("api option .js", credentials);
+                // console.log("api option .js", credentials);
                 return credentials
             }
         })
     ],
+    pages: {
+        signIn: '/login'
+
+    },
     session: {
         strategy: "jwt"
     },
+
 
 
     secret: process.env.NEXTAUTH_SECRET,

@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form"
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
+import { signIn} from "next-auth/react"
 
 export default function Signup() {
   const router=useRouter()
@@ -24,14 +25,23 @@ export default function Signup() {
   })
   async function onSubmit(data){
   try {
-    const user=await axios.post("/api/register",data)
-    toast.success("successfully created a account")
-    router.push("/login")
-    console.log(user);
+    const response=await axios.post("/api/register",data)
+    const filteredData={
+      email:response.data.userData.email,
+      password:response.data.userData.hasedPassword
+    }
+    const isLogin=await signIn("credentials",{...filteredData,redirect:false})
+    if(isLogin.ok){
+      toast.success("successfully created a account")
+      router.push("/")
+      router.refresh()
+    }else{
+      toast.error("something went wrong")
+    }
   } catch (error) {
-    toast.error("something is wrong")
-  }
    
+    toast.error("something is wrong")
+  }   
   }
     const footer=(
         <>

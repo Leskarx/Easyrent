@@ -26,6 +26,7 @@ export default function Login() {
     if(isLogin.ok){
       toast.success("Login successfull")
       router.push("/")
+      router.refresh()
     }else{
       toast.error("something went wrong")
     }
