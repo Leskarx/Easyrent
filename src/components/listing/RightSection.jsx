@@ -1,5 +1,6 @@
 import React from 'react'
 import DescriptionSection from './DescriptionSection'
+
 import TextBox from './TextBox'
 
 export default function RightSection({register}) {
@@ -10,6 +11,7 @@ export default function RightSection({register}) {
         <TextBox register={register} objectId="locationName" label="Propertiy  Name"/>
         <TextBox register={register} objectId="price" label="Set price per month"/>
         <DescriptionSection register={register} objectId="description"/>
+     
 
       </main>
       

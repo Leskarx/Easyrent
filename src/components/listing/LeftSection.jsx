@@ -1,13 +1,15 @@
+"use client"
 import React from 'react'
 import AddphotosListing from './AddphotosListing'
+import MainImageUpload from './MainImageUpload'
 
-export default function LeftSection() {
+export default function LeftSection({setValue}) {
+  (()=>{
+    // setValue()
+  })()
   return (
     <div className=' gap-6 flex flex-col justify-center items-center w-[50%] h-full border-l border-slate-400 '>
-      <section className=" rounded-full h-40 w-40 bg-green-900">
-     
-
-      </section>
+       <MainImageUpload setValue={setValue}/>
       <p className=' font-semibold'>
           Add photos
         </p>
@@ -16,6 +18,7 @@ export default function LeftSection() {
     <AddphotosListing/>
     <AddphotosListing/>
     <AddphotosListing/>
+    <MainImageUpload setValue={setValue}/>
 
    </section>
 
