@@ -17,7 +17,11 @@ export default function Listing() {
     locationName:"",
     price:"",
     description:"",
-    mainImageSrc:""
+    mainImageSrc:"",
+    imageSrc1:"",
+    imageSrc2:"",
+    imageSrc3:"",
+    imageSrc4:""
 })
 function customSetValue(id,value){
   setValue(id,value)
