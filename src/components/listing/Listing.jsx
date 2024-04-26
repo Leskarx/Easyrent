@@ -21,7 +21,9 @@ export default function Listing() {
     imageSrc1:"",
     imageSrc2:"",
     imageSrc3:"",
-    imageSrc4:""
+    imageSrc4:"",
+    roomCount:0,
+    bathroomCount:0,
 })
 function customSetValue(id,value){
   setValue(id,value)
@@ -40,7 +42,7 @@ console.log("listing ->>>>>",data);
     <div className=' flex justify-center mt-24 h-screen'>
      <section className=' p-4 w-[70%] h-[80%] bg-white flex flex-col'>
   <main className='   h-[85%] w-full flex '>
-    <RightSection register={register}/>
+    <RightSection register={register} setValue={customSetValue}/>
     <LeftSection register={register} setValue={customSetValue} />
       
   </main>
