@@ -2,6 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import prisma from "../../../../../prisma/prismaClient";
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import GoogleProvider from "next-auth/providers/google";
+import bcrypt from "bcryptjs"
 export const authOption = {
     adapter: PrismaAdapter(prisma),
 
@@ -30,6 +31,12 @@ export const authOption = {
                 if (!user) {
                     return null
                 }
+                const veriyPassword=bcrypt.compareSync(credentials.password, user.
+                    hasedPassword);
+                    if(!veriyPassword){
+                        return null
+                    }
+                
 
 
                 // console.log("api option .js", credentials);
