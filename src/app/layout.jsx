@@ -1,8 +1,5 @@
-import Footer from "@/components/mainBackground/Footer";
-import Navbar from "@/components/mainBackground/Navbar";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import getUser from "@/nextAuthActions/getUser";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -14,8 +11,7 @@ export const metadata = {
 
 
 export default async function RootLayout({ children }) {
-  const currentUser=await getUser()
-  console.log("print in layout.jsx user->>>",currentUser);
+
   return (
     <html lang="en">
       <body className={`${inter.className} bg-blue-900 overflow-x-hidden`}>
@@ -23,9 +19,8 @@ export default async function RootLayout({ children }) {
   position="top-center"
   reverseOrder={false}
 />
-        <Navbar user={currentUser}/>
-        {children}
-        <Footer/>
+    {children}
+       
         </body>
     </html>
   );
