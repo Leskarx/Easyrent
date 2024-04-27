@@ -6,8 +6,8 @@ import CountSection from './CountSection'
 
 export default function RightSection({register,setValue}) {
   return (
-    <div className=' w-[50%] h-full border-r border-slate-400'>
-      <main  className='  h-full w-[80%] flex flex-col'>
+    <div className=' w-full md:w-[50%] h-full md:border-r border-0 border-slate-400'>
+      <main  className='  h-full w-full md:w-[80%] flex flex-col'>
         <TextBox register={register} objectId="location" label="Propertiy  Location"/>
         <TextBox register={register} objectId="locationName" label="Propertiy  Name"/>
         <TextBox register={register} objectId="price" label="Set price per month"/>

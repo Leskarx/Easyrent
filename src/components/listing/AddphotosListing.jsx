@@ -30,11 +30,11 @@ export default function AddphotosListing({setValue,id}) {
     return (
       <div onClick={()=>{
         open()
-      }} className=' relative cursor-pointer h-12 w-12 bg-slate-600 rounded-lg'>
+      }} className=' relative cursor-pointer h-12 w-12 bg-slate-200 rounded-lg'>
 
 
-        {imagePresent && (
-          <div className=' bg-red-700 inset-0  rounded-lg absolute h-full w-full '>
+        {imagePresent?(
+          <div className='  inset-0  rounded-lg absolute h-full w-full '>
 
 <Image
 className=' rounded-lg object-cover'
@@ -48,6 +48,10 @@ src={src}
 
           </div>
           
+        ):(
+          <p className=' text-center text-2xl h-full w-full flex items-center justify-center'>
+            +
+          </p>
         )}
       
       </div>

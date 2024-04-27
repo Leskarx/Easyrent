@@ -5,7 +5,7 @@ import MainImageUpload from './MainImageUpload'
 
 export default function LeftSection({setValue}) {
   return (
-    <div className=' gap-6 flex flex-col justify-center items-center w-[50%] h-full border-l border-slate-400 '>
+    <div className=' gap-6 flex flex-col justify-center items-center w-full md:w-[50%] h-full border-0 md:border-l border-slate-400 '>
        <MainImageUpload setValue={setValue}/>
       <p className=' font-semibold'>
           Add photos

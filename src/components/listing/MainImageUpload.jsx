@@ -30,28 +30,32 @@ export default function MainImageUpload({setValue}) {
   {({ open }) => {
     return (
         <section onClick={()=>{
-            open()
-        }} className=" relative rounded-full h-40 w-40 bg-green-900">
+            open?.()
+        }} className=" relative rounded-lg md:rounded-full h-40 w-40 bg-slate-200">
 
             {
-                imagePresent && (
-                   <div className=' bg-red-500 rounded-full w-full h-full inset-0'>
-                     <Image
-                     className=' rounded-full'
-                    alt='Image'
-                    src={src}
-                    quality={100}
-                    priority                                                      
-                   fill 
-                   style={{
-                    objectFit:'cover'
-                   }}
-                   
+                imagePresent?(
+                  <div className=' rounded-lg md:rounded-full w-full h-full inset-0'>
+                    <Image
+                    className=' rounded-lg md:rounded-full'
+                   alt='Image'
+                   src={src}
+                   quality={100}
+                   priority                                                      
+                  fill 
+                  style={{
+                   objectFit:'cover'
+                  }}
+                  
 
 
-                    />
-                   </div>
-                )
+                   />
+                  </div>
+               ):(
+                 <p className=' text-center text-6xl h-full w-full flex items-center justify-center'>
+                   +
+                 </p>
+               )
             }
             
      
