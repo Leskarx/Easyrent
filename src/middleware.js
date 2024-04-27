@@ -12,6 +12,12 @@ export async function middleware(request) {
             url.pathname.startsWith("/signup")
         )) {
         return NextResponse.redirect(new URL('/', request.url))
+    }else if(!token && (
+    
+        url.pathname.startsWith("/listing")
+    
+    )){
+        return NextResponse.redirect(new URL('/login', request.url))
     }
 
 }
@@ -20,7 +26,8 @@ export const config = {
     matcher: [
         "/profile",
         "/login",
-        "/signup"
+        "/signup",
+        "/listing",
 
     ]
 }

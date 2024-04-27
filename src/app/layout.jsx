@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
+import Navbar from "@/components/mainBackground/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default async function RootLayout({ children }) {
   position="top-center"
   reverseOrder={false}
 />
+<Navbar/> 
     {children}
        
         </body>

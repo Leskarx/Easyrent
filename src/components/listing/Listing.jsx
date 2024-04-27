@@ -3,6 +3,8 @@ import LeftSection from '@/components/listing/LeftSection'
 import RightSection from '@/components/listing/RightSection'
 import React from 'react'
 import { useForm } from "react-hook-form"
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
 
 export default function Listing() {
@@ -32,7 +34,15 @@ function customSetValue(id,value){
  
 
  async function onSubmit(data){
-console.log("listing ->>>>>",data);
+  const response=await axios.post('/api/owner/listing',data)
+  if(response.data.success){
+    toast.success(" successfully added ")
+
+  }else{
+     toast.error("unable to add ")
+
+  }
+console.log("listing ->>>>>",response.data.success);
 
   }
 

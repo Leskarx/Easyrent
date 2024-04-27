@@ -60,18 +60,22 @@ model User {
 }
 model Listing{
    id      String   @id @default(auto()) @map("_id") @db.ObjectId
-title String
+locationName String
 description String
-imageSrc String
+mainImageSrc String?
+imageSrc1 String?
+imageSrc2 String?
+imageSrc3 String?
+imageSrc4 String?
 createdAt DateTime @default(now())
-  category String
+  category String?
   roomCount Int
   bathroomCount Int
-  isVerified Boolean @default(false)
-  available Boolean @default(true)
+  isVerified Boolean? @default(false)
+  available Boolean? @default(true)
 
-  guestCount Int
-  locationValue String
+  guestCount Int?
+  location String?
   userId String @db.ObjectId
   price Int
   user User @relation(fields: [userId],references: [id],onDelete:Cascade)
