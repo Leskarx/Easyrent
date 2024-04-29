@@ -1,4 +1,4 @@
-import getUser from "@/nextAuthActions/getUser";
+import getUser from "@/actions/nextAuthActions/getUser";
 import Navbar from "@/components/mainBackground/Navbar";
 import Footer from "@/components/mainBackground/Footer";
 

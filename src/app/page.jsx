@@ -1,12 +1,21 @@
 import HomeScreen from "@/components/homeScreen/Home";
 import GettingStart from "@/components/mobile/GettingStart";
 import Image from "next/image";
+import getUser from "@/actions/nextAuthActions/getUser";
 
-export default function Home() {
+export default async function Home() {
+    const user = await getUser();
+
+
+
     return ( 
-        <div>
+        <div className="  h-screen w-screen">
            <HomeScreen/>
-           <GettingStart/> 
+           {(user === null) &&(
+                <GettingStart/>
+           )
+
+           }
         </div>
     );
 }

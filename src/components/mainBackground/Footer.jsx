@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className='md:block hidden text-white w-full bg-red-600 p-5'>
+    <div className='md:block hidden fixed bottom-0 text-white w-full bg-red-600 p-5'>
 <div className=' w-full h-full flex justify-between ' >
 <p>
         EASYRENT © 2024 
