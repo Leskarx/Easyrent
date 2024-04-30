@@ -18,9 +18,11 @@ export default function Login() {
     email:"",
     password:""
   })
+  const [loading,setLoading]=React.useState(false)
 
   async function onSubmit(data){
   try {
+    setLoading(true)
     const isLogin=await signIn("credentials",{...data,redirect:false})
     console.log(isLogin);
     if(isLogin.ok){
@@ -29,6 +31,7 @@ export default function Login() {
       router.refresh()
     }else{
       toast.error("something went wrong")
+      setLoading(false)
     }
    
     
@@ -61,7 +64,7 @@ export default function Login() {
 
   return (
     <div className=' w-full h-full flex justify-center items-center '>
-  <MainSection title="Login" para='Login now to get your next Perfect Home. ' buttonTitle="Login" footer={footer} handleSubmit={handleSubmit(onSubmit)} body={body} showGprovider={true} />
+  <MainSection title="Login" para='Login now to get your next Perfect Home. ' buttonTitle="Login" footer={footer} handleSubmit={handleSubmit(onSubmit)} body={body} showGprovider={true} isLoading={loading} />
     </div>
   )
 }

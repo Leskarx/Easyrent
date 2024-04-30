@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import Navbar from "@/components/mainBackground/Navbar";
+import getUser from "@/actions/nextAuthActions/getUser";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +13,7 @@ export const metadata = {
 
 
 export default async function RootLayout({ children }) {
+  const user=await getUser()
 
   return (
     <html lang="en">
@@ -20,7 +22,7 @@ export default async function RootLayout({ children }) {
   position="top-center"
   reverseOrder={false}
 />
-<Navbar/> 
+<Navbar user={user}/> 
     {children}
        
         </body>

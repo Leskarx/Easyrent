@@ -24,7 +24,8 @@ export async function POST(request) {
         })
 
     } catch (error) {
-        throw new Error("error in register route.js")
+        // console.log("error in route.js.......",error);
+        throw new Error("error in register route.js",error)
 
     }
 

@@ -6,11 +6,13 @@ import MainSection from '../utils/MainSection'
 import { useForm } from "react-hook-form"
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
-import { useRouter } from 'next/navigation'
 import { signIn} from "next-auth/react"
+import { useRouter } from 'next/navigation'
+
 
 export default function Signup() {
   const router=useRouter()
+  const [loading,setLoading]=React.useState(false)
   const {
     register,
     handleSubmit,
@@ -25,22 +27,29 @@ export default function Signup() {
   })
   async function onSubmit(data){
   try {
+    setLoading(true)
     const response=await axios.post("/api/register",data)
     const filteredData={
       email:response.data.userData.email,
-      password:response.data.userData.hasedPassword
+      password:data.password
     }
+    console.log(filteredData);
     const isLogin=await signIn("credentials",{...filteredData,redirect:false})
+   
     if(isLogin.ok){
       toast.success("successfully created a account")
+      setLoading(true)
       router.push("/")
       router.refresh()
     }else{
       toast.error("something went wrong")
+      setLoading(false)
     }
   } catch (error) {
-   
-    toast.error("something is wrong")
+    setLoading(false)
+
+   console.log("errrorr.......",error);
+    toast.error("something wrong")
   }   
   }
     const footer=(
@@ -65,7 +74,9 @@ export default function Signup() {
     
       return (
         <div className=' w-full h-full flex justify-center items-center md:mb-10 mb-0 '>
-      <MainSection title="Register" para='Create an account to access all the features of EASYRENT!' handleSubmit={handleSubmit(onSubmit)} buttonTitle="Register" footer={footer} body={body} showGprovider={false} />
+      <MainSection 
+      isLoading={loading}
+      title="Register" para='Create an account to access all the features of EASYRENT!' handleSubmit={handleSubmit(onSubmit)} buttonTitle="Register" footer={footer} body={body} showGprovider={false} />
         </div>
       )
 }

@@ -3,9 +3,11 @@ import React from 'react'
 import { FaArrowLeftLong } from "react-icons/fa6";
 import OtherLogin from './OtherLogin';
 import { useRouter } from 'next/navigation';
+import { PulseLoader
+} from 'react-spinners';
 
 
-export default function MainSection({title,para,body,buttonTitle,handleSubmit,footer,showGprovider}) {
+export default function MainSection({title,para,body,buttonTitle,handleSubmit,footer,showGprovider,isLoading}) {
   const router=useRouter()
   return (
     <div className=' min-h-screen md:min-h-[30%] md:w-[30%] w-full bg-white rounded-lg shadow-4xl flex justify-between  '>
@@ -31,8 +33,28 @@ export default function MainSection({title,para,body,buttonTitle,handleSubmit,fo
        </div>
 
      <div className=' w-full flex flex-col gap-3'>
-     <button className=' rounded-lg w-full p-4 bg-red-500 text-white text-center '  onClick={handleSubmit}>
-{buttonTitle}
+     <button disabled={isLoading} className={
+      ` ${isLoading?'bg-red-400':'bg-red-500'} flex items-center justify-center rounded-lg w-full p-4  text-white text-center `
+     }  onClick={handleSubmit}>
+ 
+<div>
+
+  {
+    isLoading? <PulseLoader
+    color={"#fff"}
+    loading={true}
+    size={10}
+    aria-label="Loading Spinner"
+    data-testid="loader"
+  />:
+     <p>
+       {buttonTitle}
+     </p>
+    
+  }
+     
+
+</div>
        </button>
        {
         showGprovider&&(
