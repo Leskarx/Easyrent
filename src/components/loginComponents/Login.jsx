@@ -1,8 +1,8 @@
 "use client"
 import React from 'react'
-import AlreadySection from '../utils/AlreadySection'
+import AlreadySection from '../utils/section/AlreadySection'
 import InputBox from '../utils/InputBox'
-import MainSection from '../utils/MainSection'
+import MainSection from '../utils/section/MainSection'
 import { useForm } from "react-hook-form"
 import { signIn} from "next-auth/react"
 import { toast } from 'react-hot-toast'

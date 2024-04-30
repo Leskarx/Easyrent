@@ -2,7 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image';
-import AlreadySection from '../utils/AlreadySection';
+import AlreadySection from '../utils/section/AlreadySection';
 import OtherLogin from '../utils/OtherLogin';
 
 export default function GettingStart() {

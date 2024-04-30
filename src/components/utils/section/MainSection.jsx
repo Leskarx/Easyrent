@@ -1,10 +1,10 @@
 "use client"
 import React from 'react'
 import { FaArrowLeftLong } from "react-icons/fa6";
-import OtherLogin from './OtherLogin';
+import OtherLogin from '../OtherLogin';
 import { useRouter } from 'next/navigation';
-import { PulseLoader
-} from 'react-spinners';
+import Button from '../Button/Button';
+
 
 
 export default function MainSection({title,para,body,buttonTitle,handleSubmit,footer,showGprovider,isLoading}) {
@@ -33,29 +33,10 @@ export default function MainSection({title,para,body,buttonTitle,handleSubmit,fo
        </div>
 
      <div className=' w-full flex flex-col gap-3'>
-     <button disabled={isLoading} className={
-      ` ${isLoading?'bg-red-400':'bg-red-500'} flex items-center justify-center rounded-lg w-full p-4  text-white text-center `
-     }  onClick={handleSubmit}>
- 
-<div>
-
-  {
-    isLoading? <PulseLoader
-    color={"#fff"}
-    loading={true}
-    size={10}
-    aria-label="Loading Spinner"
-    data-testid="loader"
-  />:
-     <p>
-       {buttonTitle}
-     </p>
-    
-  }
      
+<Button isLoading={isLoading} handleSubmit={handleSubmit} buttonTitle={buttonTitle} />
 
-</div>
-       </button>
+
        {
         showGprovider&&(
           <OtherLogin des="Continue with google"/>
