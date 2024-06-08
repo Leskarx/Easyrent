@@ -18,7 +18,7 @@ export default async function HomeScreen() {
    </section>
 <section className='flex flex-col gap-16 w-screen h-max p-12  bg-white' >
   
-<div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8  w-full '>
+<div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-8  w-full '>
 
 {
 listing.map((items)=>{
