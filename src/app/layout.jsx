@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
   position="top-center"
   reverseOrder={false}
 />
-<Navbar user={user}/> 
+{/* <Navbar user={user}/>  */}
     {children}
        
         </body>

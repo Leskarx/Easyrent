@@ -15,6 +15,9 @@ export default async function getUser() {
                 email: session.user.email
             }
         })
+        if(!user) {
+            return null
+        }
         // console.log("print in get suer user->>>", user);
     return user;
 
