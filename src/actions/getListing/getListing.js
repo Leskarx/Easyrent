@@ -5,4 +5,35 @@ async function getListing(){
     return listing
 
 } 
+export  async function getListingById(id){
+    const listing= await prisma.listing.findUnique({
+        where:{
+            id:id
+        }
+    })
+    const owner=await prisma.user.findUnique({
+        where:{
+            id:listing.userId
+        }
+    })
+
+
+    return [listing,owner]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export default getListing;

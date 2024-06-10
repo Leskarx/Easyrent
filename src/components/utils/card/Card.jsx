@@ -1,9 +1,15 @@
+"use client";
 import React from 'react'
 import Image from 'next/image'
 import Heartbutton from '@/components/heartButton/Heartbutton'
-export default function Card({title,src}) {
+import { useRouter } from 'next/navigation'
+export default function Card({title,src,price,location,rating,id}) {
+  const router=useRouter()
   return (
-   <section className='col-span-1 cursor-pointer group  '>
+   <section onClick={()=>{
+      router.push(`/listing/${id}`)
+    
+   }} className='col-span-1 cursor-pointer group  '>
    <div className="flex flex-col  justify-center items-center gap-2 w-full">
    <div className=' relative rounded-xl w-full aspect-square  overflow-hidden '>
       
@@ -25,6 +31,12 @@ export default function Card({title,src}) {
 </div>
      
      
+    
+  </div>
+  <div className=" flex flex-col relative  w-full ">
+    <p className=' font-semibold text-lg'>{location}</p>
+    <p><span className=' text-base font-medium  '>₹ {price}</span> <span className=' font-light text-sm '>monthly</span> </p>
+    <p className='absolute top-1/2 -translate-y-1/2 self-end'>{rating}</p>
     
   </div>
    </div>

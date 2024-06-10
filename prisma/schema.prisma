@@ -73,6 +73,7 @@ createdAt DateTime @default(now())
   bathroomCount Int
   isVerified Boolean? @default(false)
   available Boolean? @default(true)
+  rating Int? @default(0)
 
   guestCount Int?
   location String?
