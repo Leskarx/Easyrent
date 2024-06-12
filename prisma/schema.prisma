@@ -63,6 +63,7 @@ model Listing{
 locationName String
 description String
 mainImageSrc String?
+imagesSrc String[]
 imageSrc1 String?
 imageSrc2 String?
 imageSrc3 String?

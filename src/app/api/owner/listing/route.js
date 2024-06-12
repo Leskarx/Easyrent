@@ -24,10 +24,7 @@ export async function POST(request) {
             price:parseInt(data.price),
             description:data.description,
             mainImageSrc:data.mainImageSrc,
-            imageSrc1:data.imageSrc1,
-            imageSrc2:data.imageSrc2,
-            imageSrc3:data.imageSrc3,
-            imageSrc4:data.imageSrc4,
+            imagesSrc:data.imagesSrc,
             roomCount:parseInt(data.roomCount),
             bathroomCount:parseInt(data.bathroomCount),
         }

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function DetailsSection({listingData}) {
   return (
-    <div className=' w-[50%] h-full '>
+    <div className=' w-[40%] h-full '>
     <div className=' flex gap-2 font-normal  text-lg'>
     <p>{listingData?.location}</p>
       <p>{listingData?.state||"State"}</p>

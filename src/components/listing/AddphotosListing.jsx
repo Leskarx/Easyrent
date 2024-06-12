@@ -4,15 +4,29 @@ import { CldUploadWidget } from 'next-cloudinary';
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function AddphotosListing({setValue,id}) {
+export default function AddphotosListing({setValue,id,getValues}) {
   const [imagePresent,setImagePresent]=useState(false)
   const [src,setSrc]=useState("")
  
      function handleUpload(results){
          setSrc(results?.info?.secure_url)
          setImagePresent(true)
-         setValue(id,results?.info?.secure_url)
-         console.log(" main image upload log->>>.",results?.info?.secure_url);
+         const images=getValues(id)
+         if(images==undefined||images.length==0){
+            setValue(id,[results?.info?.secure_url])
+
+         }else{
+            setValue(id,[...getValues(id),results?.info?.secure_url])
+
+         }
+        
+
+// console.log("images display",getValues(id));
+         
+
+
+         
+         
      }
 
   return (

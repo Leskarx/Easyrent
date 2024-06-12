@@ -9,7 +9,7 @@ export default function ListingDetail({listingData,ownerData,currentUser}) {
     <div className=' absolute w-full h-full'>
      <div className=' relative flex flex-col items-center w-full h-full '>
       <div className=' w-full min-h-full max-h-max mt-20 bg-white pt-10 pl-48 pr-48  '>
-        <div className=' flex flex-col gap-3 bg-green-500  w-full h-full'>
+        <div className=' flex flex-col gap-3  w-full h-full'>
 
           <div className='flex justify-between items-center w-full '>
             <h1 className=' text-4xl font-semibold'>{listingData?.locationName}</h1>

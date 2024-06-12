@@ -15,6 +15,7 @@ export default function Listing() {
     register,
     handleSubmit,
     setValue,
+    getValues,
     watch,
     formState: { errors },
   } =useForm({
@@ -23,10 +24,7 @@ export default function Listing() {
     price:"",
     description:"",
     mainImageSrc:"",
-    imageSrc1:"",
-    imageSrc2:"",
-    imageSrc3:"",
-    imageSrc4:"",
+    imagesSrc:[""],
     roomCount:0,
     bathroomCount:0,
 })
@@ -35,6 +33,8 @@ function customSetValue(id,value){
   setValue(id,value)
 
 }
+function customGetValues(id){
+  return getValues(id)}
  
 
  async function onSubmit(data){
@@ -61,7 +61,7 @@ console.log("listing ->>>>>",response.data.success);
      <section className=' p-4 md:w-[70%] md:h-[80%] w-full h-full bg-white flex flex-col gap-10'>
   <main className='   h-[85%] w-full flex md:flex-row flex-col gap-10 md:gap-0 '>
     <RightSection register={register} setValue={customSetValue}/>
-    <LeftSection register={register} setValue={customSetValue} />
+    <LeftSection register={register} setValue={customSetValue} getValues={customGetValues} />
       
   </main>
       <section className=' py-6 w-full h-[25%]   flex justify-center items-end '>

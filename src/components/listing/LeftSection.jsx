@@ -3,7 +3,7 @@ import React from 'react'
 import AddphotosListing from './AddphotosListing'
 import MainImageUpload from './MainImageUpload'
 
-export default function LeftSection({setValue}) {
+export default function LeftSection({setValue,getValues}) {
   return (
     <div className=' gap-6 flex flex-col justify-center items-center w-full md:w-[50%] h-full border-0 md:border-l border-slate-400 '>
        <MainImageUpload setValue={setValue}/>
@@ -11,10 +11,10 @@ export default function LeftSection({setValue}) {
           Add photos
         </p>
    <section className=' gap-3 flex w-max h-max   '>
-    <AddphotosListing setValue={setValue} id="imageSrc1"/>
-    <AddphotosListing setValue={setValue} id="imageSrc2"/>
-    <AddphotosListing setValue={setValue} id="imageSrc3"/>
-    <AddphotosListing setValue={setValue} id="imageSrc4"/>
+    <AddphotosListing setValue={setValue} getValues={getValues} id="imagesSrc"/>
+    <AddphotosListing setValue={setValue} getValues={getValues} id="imagesSrc"/>
+    <AddphotosListing setValue={setValue} getValues={getValues} id="imagesSrc"/>
+    <AddphotosListing setValue={setValue} getValues={getValues} id="imagesSrc"/>
     
 
    </section>
