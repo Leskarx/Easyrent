@@ -20,7 +20,7 @@ export default function SmallImages({src}) {
   }
   
   
-  <div onClick={handleclick} className='relative overflow-hidden rounded-lg  h-28 w-36'>
+  <div onClick={handleclick} className='relative  overflow-hidden rounded-lg  h-full w-full'>
         
         <div className='  inset-0 rounded-lg overflow-hidden'>
         <Image className=' hover:scale-110 transition  rounded-lg' src={src} alt='images' fill priority  style={{

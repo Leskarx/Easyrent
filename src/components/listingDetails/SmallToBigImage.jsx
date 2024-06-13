@@ -10,7 +10,7 @@ export default function SmallToBigImage({src,handleclick}) {
     </section>
     <div className=' fixed z-50 inset-0'>
             <div className=' w-full h-full  flex justify-center items-center '>
-             <main className=' flex flex-col gap-1   w-[50%] h-[65%] '>
+             <main className=' flex flex-col gap-1  w-[90%] md:w-[50%] h-[80%] md:h-[65%] '>
              <section onClick={handleclick} className=' self-end pr-5'>
                     <p className=' text-white underline'>
                         Close
