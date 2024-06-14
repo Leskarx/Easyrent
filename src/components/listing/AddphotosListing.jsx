@@ -35,7 +35,7 @@ export default function AddphotosListing({setValue,id,getValues}) {
         maxFiles:1
      }} onUpload={handleUpload}
      onSuccess={(results)=>{
-        console.log(results);
+        // console.log(results);
      }}
      uploadPreset="ml_default">
 

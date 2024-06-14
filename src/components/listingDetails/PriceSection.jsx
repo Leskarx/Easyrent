@@ -4,12 +4,13 @@ import Button from '../utils/Button/Button'
 import { useState } from 'react';
 import LargeBookingSection from './LargeBookingSection';
 
-export default function PriceSection({listingData}) {
+export default function PriceSection({listingData,currentUser}) {
   const [islarge, setislarge] = useState(false)
+  const [date, setDate] = useState(null);
 
     function toggleLarge(){
       setislarge((prev)=>!prev)
-        console.log("book now clicked");
+        // console.log("book now clicked");
     }
 
   return (
@@ -25,7 +26,7 @@ export default function PriceSection({listingData}) {
   </div>
   {
     islarge&&(
-      <LargeBookingSection toggleLarge={toggleLarge}/>
+      <LargeBookingSection toggleLarge={toggleLarge} listingData={listingData} date={date} setDate={setDate} currentUser={currentUser} />
 
     )
   }

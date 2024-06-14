@@ -8,7 +8,7 @@ export default function Heartbutton() {
 const [toggle, setToggle] = useState(false)
 const handleClick = () => {
   setToggle((prev) => !prev)
-    console.log(toggle);
+    // console.log(toggle);
 }
   return (
     <div onClick={handleClick} className=' relative '>

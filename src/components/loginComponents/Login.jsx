@@ -24,7 +24,7 @@ export default function Login() {
   try {
     setLoading(true)
     const isLogin=await signIn("credentials",{...data,redirect:false})
-    console.log(isLogin);
+    // console.log(isLogin);
     if(isLogin.ok){
       toast.success("Login successfull")
       router.push("/")

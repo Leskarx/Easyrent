@@ -13,7 +13,7 @@ export default function MainImageUpload({setValue}) {
         setSrc(results?.info?.secure_url)
         setImagePresent(true)
         setValue("mainImageSrc",results?.info?.secure_url)
-        console.log(" main image upload log->>>.",results?.info?.secure_url);
+        // console.log(" main image upload log->>>.",results?.info?.secure_url);
     }
 
   return (

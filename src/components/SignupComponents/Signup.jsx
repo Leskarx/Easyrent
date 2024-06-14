@@ -33,7 +33,7 @@ export default function Signup() {
       email:response.data.userData.email,
       password:data.password
     }
-    console.log(filteredData);
+    // console.log(filteredData);
     const isLogin=await signIn("credentials",{...filteredData,redirect:false})
    
     if(isLogin.ok){
@@ -48,7 +48,7 @@ export default function Signup() {
   } catch (error) {
     setLoading(false)
 
-   console.log("errrorr.......",error);
+  //  console.log("errrorr.......",error);
     toast.error("something wrong")
   }   
   }

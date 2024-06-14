@@ -4,16 +4,18 @@ import getListing from '@/actions/getListing/getListing'
 import Card from '../utils/card/Card'
 import DiscoverPrime from './DiscoverPrime'
 import getUser from '@/actions/nextAuthActions/getUser'
+import Navbar from '../mainBackground/Navbar'
 
 export default async function HomeScreen() {
   const user=await getUser()
   const listing=await getListing()
-  console.log("hehehh",listing)
+  // console.log("hehehh",listing)
   return (
     <div className={` ${(user!=null)? "block":"hidden md:block" }       w-screen  `}>
 
      
 <section className=' flex w-full h-[30vh]  justify-center '>
+<Navbar/>
    <SearchBar/>
    </section>
 <section className='flex flex-col gap-16 w-screen h-max p-6 md:p-12  bg-white' >

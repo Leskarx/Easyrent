@@ -5,7 +5,7 @@ import ThirdSection from './thirdSection/ThirdSection';
 
 
 export default function ListingDetail({listingData,ownerData,currentUser}) {
-  console.log("listing detain page",listingData);
+  // console.log("listing detain page",listingData);
   return (
     <div className=' absolute w-full h-full'>
      <div className=' relative flex flex-col items-center w-full h-full '>
@@ -24,7 +24,7 @@ export default function ListingDetail({listingData,ownerData,currentUser}) {
 
        <FirstSection listingData={listingData} />
 
-       <SecondSection listingData={listingData} ownerData={ownerData}  />
+       <SecondSection listingData={listingData} currentUser={currentUser}  />
        <ThirdSection listingData={listingData} ownerData={ownerData} currentUser={currentUser} />
 
         </div>
