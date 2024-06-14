@@ -11,15 +11,24 @@ export default async function HomeScreen() {
   const listing=await getListing()
   // console.log("hehehh",listing)
   return (
-    <div className={` ${(user!=null)? "block":"hidden md:block" }       w-screen  `}>
+    <div className={` ${(user!=null)? "block":"hidden md:block" }       w-full  `}>
 
      
-<section className=' flex w-full h-[30vh]  justify-center '>
+<section className=' relative flex flex-col w-full h-max '>
 <Navbar/>
-   <SearchBar/>
+   <section className=' absolute  w-full h-max flex justify-center '><SearchBar/></section>
    </section>
-<section className='flex flex-col gap-16 w-screen h-max p-6 md:p-12  bg-white' >
+
+<section className='flex absolute top-72 flex-col gap-4 w-screen h-max  py-6 md:px-12 md:py-20  bg-white' >
   
+{/* text section */}
+<section className=' w-full h-max flex flex-col gap-1'>
+<h1 className=' font-bold text-2xl text-slate-800' >Discover your next Home</h1>
+<p className=' font-light text-sm'>
+  Explore the best PG and rent houses in your city
+</p>
+</section>
+
 <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-8  w-full '>
 
 {
@@ -33,7 +42,7 @@ listing.map((items)=>{
 
 </div>
 
-<DiscoverPrime/>
+<section className=' mt-12'><DiscoverPrime/></section>
 
 
 

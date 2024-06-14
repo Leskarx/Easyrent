@@ -7,9 +7,9 @@ import ThirdSection from './thirdSection/ThirdSection';
 export default function ListingDetail({listingData,ownerData,currentUser}) {
   // console.log("listing detain page",listingData);
   return (
-    <div className=' absolute w-full h-full'>
+    <div className=' absolute top-28  w-full h-full'>
      <div className=' relative flex flex-col items-center w-full h-full '>
-      <div className=' w-full    mt-20 bg-white pt-10 px-6 md:px-0 md:pl-48 md:pr-48  '>
+      <div className=' w-full    bg-white pt-10 px-6 md:px-0 md:pl-48 md:pr-48  '>
         <div className=' flex flex-col gap-3  w-full h-full'>
 
           <div className='flex justify-between items-center w-full '>

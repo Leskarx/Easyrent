@@ -7,17 +7,23 @@ import { signOut } from 'next-auth/react';
 export default function Navbar({user}) {
   const router=useRouter();
   return (
-    <div className=' absolute -top-10 md:block hidden  w-full text-white p-2'>
-<div className=' w-full h-full flex justify-between items-center '>
+   <main style={{
+    backgroundImage: "url('/bg.jpg')",
+    backgroundSize: "cover",
+   }} className='md:block hidden -z-50 '>
+     <div className='  h-screen flex flex-col  w-full text-white p-2'>
+<div className='  w-full h-max flex justify-between items-center '>
+<section className=' relative  h-[80px] w-[200px] '>
+<div className=' inset-0'>
 <Image
-src={"/Blue Simple Classic Property Real Estate Logo 2.png"}
+src={"/logo.png"}
 alt="LOgo"
-quality={100}
+fill
 priority
-sizes='10vw'
-width={150}
-height={70}
+style={{objectFit:"contain"}}
 />
+</div>
+</section>
 
 <ul className=' flex gap-10 mr-2 '>
  {
@@ -35,7 +41,13 @@ height={70}
 </ul>
 
 </div>
+<section className='  w-full h-full'>
+  dfb
+</section>
+
+
       
     </div>
+   </main>
   )
 }

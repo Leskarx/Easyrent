@@ -9,7 +9,7 @@ export default async function Home() {
 
 
     return ( 
-        <div className="  h-screen w-screen">
+        <div className=" w-full h-max">
            <HomeScreen/>
            {(user === null) &&(
                 <GettingStart/>

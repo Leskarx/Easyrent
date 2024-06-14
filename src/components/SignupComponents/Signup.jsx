@@ -73,7 +73,7 @@ export default function Signup() {
       )
     
       return (
-        <div className=' w-full h-full flex justify-center items-center md:mb-10 mb-0 '>
+        <div className=' w-full h-full flex justify-center items-center  mb-0 '>
       <MainSection 
       isLoading={loading}
       title="Register" para='Create an account to access all the features of EASYRENT!' handleSubmit={handleSubmit(onSubmit)} buttonTitle="Register" footer={footer} body={body} showGprovider={false} />
