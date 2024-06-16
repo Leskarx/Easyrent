@@ -1,5 +1,5 @@
 import getUser from "@/actions/nextAuthActions/getUser";
-import Navbar from "@/components/mainBackground/Navbar";
+import Navbar from "@/components/utils/navbar/Navbar";
 import Footer from "@/components/mainBackground/Footer";
 
 

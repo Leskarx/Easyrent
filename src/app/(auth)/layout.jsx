@@ -1,5 +1,5 @@
 import getUser from "@/actions/nextAuthActions/getUser";
-import Navbar from "@/components/mainBackground/Navbar";
+import Navbar from "@/components/utils/navbar/Navbar";
 import Footer from "@/components/mainBackground/Footer";
 
 
@@ -8,7 +8,7 @@ export default async function RootLayout({children}) {
     // console.log("print in layout.jsx user->>>",currentUser);
   return (
    <>
-    <Navbar user={currentUser}/>
+    <Navbar user={currentUser} authPage={true}/>
    {children}
    <Footer/>
    </>

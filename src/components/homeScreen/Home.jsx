@@ -4,7 +4,9 @@ import getListing from '@/actions/getListing/getListing'
 import Card from '../utils/card/Card'
 import DiscoverPrime from './DiscoverPrime'
 import getUser from '@/actions/nextAuthActions/getUser'
-import Navbar from '../mainBackground/Navbar'
+import Navbar from '../utils/navbar/Navbar'
+import MobileScreenNavbar from '../utils/navbar/MobileScreenNavbar'
+import MobileScreenNavWithSearch from '../utils/navbar/MobileScreenNavWithSearch'
 
 export default async function HomeScreen() {
   const user=await getUser()
@@ -13,13 +15,17 @@ export default async function HomeScreen() {
   return (
     <div className={` ${(user!=null)? "block":"hidden md:block" }       w-full  `}>
 
+     <MobileScreenNavbar/>
+
      
 <section className=' relative flex flex-col w-full h-max '>
-<Navbar/>
-   <section className=' absolute  w-full h-max flex justify-center '><SearchBar/></section>
+<Navbar user={user} homePage={true} />
+   <SearchBar/>
    </section>
 
-<section className='flex absolute top-72 flex-col gap-4 w-screen h-max  py-6 md:px-12 md:py-20  bg-white' >
+<section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-screen h-max px-6  pb-10 pt-16 md:px-12 md:py-20  bg-white' >
+
+  
   
 {/* text section */}
 <section className=' w-full h-max flex flex-col gap-1'>

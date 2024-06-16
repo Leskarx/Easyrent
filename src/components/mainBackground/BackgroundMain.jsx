@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from './Navbar'
+import Navbar from '../utils/navbar/Navbar'
 import Image from 'next/image'
 import Footer from './Footer'
 

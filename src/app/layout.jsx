@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-import Navbar from "@/components/mainBackground/Navbar";
+import Navbar from "@/components/utils/navbar/Navbar";
 import getUser from "@/actions/nextAuthActions/getUser";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,7 +17,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-blue-900 overflow-x-hidden`}>
+      <body className={`${inter.className} bg-white overflow-x-hidden`}>
       <Toaster
   position="top-center"
   reverseOrder={false}
