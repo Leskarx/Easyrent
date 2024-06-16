@@ -3,15 +3,21 @@ import React from 'react'
 import Image from 'next/image'
 import Heartbutton from '@/components/heartButton/Heartbutton'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react';
+import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
 export default function Card({title,src,price,location,rating,id}) {
+  const [isloading,setIsloading]=useState(false)
   const router=useRouter()
   return (
+ <>
    <section onClick={()=>{
+    setIsloading(true)
+
       router.push(`/listing/${id}`)
     
    }} className='col-span-1 cursor-pointer group  '>
    <div className="flex flex-col  justify-center items-center gap-2 w-full">
-   <div className=' relative rounded-xl w-full aspect-square  overflow-hidden '>
+   <div className=' relative rounded-xl w-full aspect-square bg-slate-200  overflow-hidden '>
       
 
       <Image
@@ -41,5 +47,12 @@ export default function Card({title,src,price,location,rating,id}) {
   </div>
    </div>
    </section>
+   {/* loading screen */}
+   {
+    isloading && (
+      <LoadingScreen/>
+    )
+   }
+ </>
   )
 }
