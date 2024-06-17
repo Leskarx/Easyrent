@@ -1,3 +1,4 @@
+
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
@@ -12,8 +13,8 @@ export const metadata = {
 };
 
 
-export default async function RootLayout({ children }) {
-  const user=await getUser()
+export default  function RootLayout({ children }) {
+ 
 
   return (
     <html lang="en">

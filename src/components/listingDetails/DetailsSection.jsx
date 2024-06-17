@@ -14,7 +14,7 @@ export default function DetailsSection({listingData}) {
     <div>
      Rating division
     </div>
-    <div className=' mt-6  text-wrap '>
+    <div className=' mt-6  text-wrap overflow-scroll no-scrollbar  '>
        
        <p className=' text-[14px] md:text-base ' >{listingData?.description}</p>
     </div>

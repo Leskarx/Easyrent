@@ -1,13 +1,22 @@
-
+"use client";
 import React from 'react'
 import { getPractice } from '@/actions/nextAuthActions/getPractice'
 import MobileSearchBar from './mobileSearchBar';
 import MscreenSearchBar from './MscreenSearchBar';
+import { useState } from 'react';
 
- export default async function SearchBar() {
+ export default  function SearchBar() {
+  const [location, setLocation] = useState('')
+  const [pinCode, setPinCode] = useState('')
+  const data={
+    location,
+    pinCode,
+    setLocation,
+    setPinCode
+  }
 
-  const practice= await getPractice()
-  console.log("pipeline data................",practice);
+  // const practice= await getPractice()
+  // console.log("pipeline data................",practice);
 
   return (
    <main>
@@ -20,11 +29,11 @@ import MscreenSearchBar from './MscreenSearchBar';
       
     </div> */}
 
-  <MscreenSearchBar/>
+  <MscreenSearchBar data={data}/>
 
 
 
-   <MobileSearchBar/>
+   <MobileSearchBar data={data}/>
 
 
    </main>

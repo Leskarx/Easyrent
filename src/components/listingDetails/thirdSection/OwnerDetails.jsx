@@ -19,7 +19,7 @@ export default function OwnerDetails({ownerData}) {
    <div className='  inset-0 '>
     <Image
     className=' rounded-full'
-    src={ownerData?.image||"/pngfind.com-placeholder-png-6104451.png"}
+    src={ownerData?.image||"/placeholder.png"}
     alt='Owner Image'
     quality={100}
     priority
