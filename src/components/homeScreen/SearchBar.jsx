@@ -9,12 +9,7 @@ import { useState,useEffect } from 'react';
  export default  function SearchBar({home=false}) {
   const [location, setLocation] = useState("")
   const [pinCode, setPinCode] = useState("")
-  if(home){
-    useEffect(()=>{
-      localStorage.clear()
-    })
-
-  }
+ 
 
   // console.log(`locationValueStore`,locationValueStore);
   useEffect(()=>{
