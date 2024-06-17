@@ -2,8 +2,7 @@
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-import Navbar from "@/components/utils/navbar/Navbar";
-import getUser from "@/actions/nextAuthActions/getUser";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,8 +22,10 @@ export default  function RootLayout({ children }) {
   position="top-center"
   reverseOrder={false}
 />
-{/* <Navbar user={user}/>  */}
-    {children}
+
+{children}
+
+   
        
         </body>
     </html>

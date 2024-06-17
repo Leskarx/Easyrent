@@ -20,7 +20,7 @@ export default async function HomeScreen() {
      
 <section className=' relative flex flex-col w-full h-max '>
 <Navbar user={user} homePage={true} />
-   <SearchBar/>
+   <SearchBar home={true}/>
    </section>
 
 <section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-screen h-max px-6  pb-10 pt-16 md:px-12 md:py-20  bg-white' >

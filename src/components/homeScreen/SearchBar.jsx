@@ -3,11 +3,35 @@ import React from 'react'
 import { getPractice } from '@/actions/nextAuthActions/getPractice'
 import MobileSearchBar from './mobileSearchBar';
 import MscreenSearchBar from './MscreenSearchBar';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
- export default  function SearchBar() {
-  const [location, setLocation] = useState('')
-  const [pinCode, setPinCode] = useState('')
+
+ export default  function SearchBar({home=false}) {
+  const [location, setLocation] = useState("")
+  const [pinCode, setPinCode] = useState("")
+  if(home){
+    useEffect(()=>{
+      localStorage.clear()
+    })
+
+  }
+
+  // console.log(`locationValueStore`,locationValueStore);
+  useEffect(()=>{
+   const locationLocalValue= JSON.parse(localStorage.getItem("locationValueStore"))
+    if(locationLocalValue){
+      setLocation(locationLocalValue)
+     
+    }
+    const pinCodeLocalValue= JSON.parse(localStorage.getItem("pinCodeValueStore"))
+    if(pinCodeLocalValue){
+      setPinCode(pinCodeLocalValue)
+    }
+  },[])
+
+
+
+
   const data={
     location,
     pinCode,
@@ -29,7 +53,7 @@ import { useState } from 'react';
       
     </div> */}
 
-  <MscreenSearchBar data={data}/>
+  <MscreenSearchBar data={data} />
 
 
 
