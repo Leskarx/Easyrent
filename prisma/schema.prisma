@@ -68,6 +68,7 @@ imageSrc1 String?
 imageSrc2 String?
 imageSrc3 String?
 imageSrc4 String?
+pinCode String?
 createdAt DateTime @default(now())
   category String?
   roomCount Int

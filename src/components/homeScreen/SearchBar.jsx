@@ -4,22 +4,23 @@ import { getPractice } from '@/actions/nextAuthActions/getPractice'
 import MobileSearchBar from './mobileSearchBar';
 import MscreenSearchBar from './MscreenSearchBar';
 import { useState,useEffect } from 'react';
+import { set } from 'date-fns';
 
 
- export default  function SearchBar({home=false}) {
+ export default  function SearchBar({home=false,setToggle=()=>{}}) {
   const [location, setLocation] = useState("")
   const [pinCode, setPinCode] = useState("")
- 
+
 
   // console.log(`locationValueStore`,locationValueStore);
   useEffect(()=>{
    const locationLocalValue= JSON.parse(localStorage.getItem("locationValueStore"))
-    if(locationLocalValue){
+    if(locationLocalValue && !home){
       setLocation(locationLocalValue)
      
     }
     const pinCodeLocalValue= JSON.parse(localStorage.getItem("pinCodeValueStore"))
-    if(pinCodeLocalValue){
+    if(pinCodeLocalValue && !home){
       setPinCode(pinCodeLocalValue)
     }
   },[])
@@ -48,7 +49,7 @@ import { useState,useEffect } from 'react';
       
     </div> */}
 
-  <MscreenSearchBar data={data} />
+  <MscreenSearchBar data={data} setToggle={setToggle} />
 
 
 

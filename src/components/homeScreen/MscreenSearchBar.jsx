@@ -2,19 +2,42 @@
 import React from 'react'
 import MscreenText from '../utils/text/MscreenText'
 import Button from '../utils/Button/Button'
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { useRouter } from 'next/navigation';
+import LoadingScreen from '../loadingScreen/LoadingScreen';
+import axios from 'axios';
+import { set } from 'date-fns';
 
 
-export default function MscreenSearchBar({data}) {
+
+export default function MscreenSearchBar({data,setToggle}) {
+  const [buttonLoading, setButtonLoading] = useState(false)
+  const [loadingScreen, setLoadingScreen] = useState(false)
   const router=useRouter()
 
   const {location,pinCode,setLocation,setPinCode}=data
-  const handleSubmit=()=>{
+  async function handleSubmit(){
+
     localStorage.setItem("locationValueStore",JSON.stringify(location))
     localStorage.setItem("pinCodeValueStore",JSON.stringify(pinCode))
     if(location!="" || pinCode!=""){
+      setLoadingScreen(true)
+    
+  
+      setButtonLoading(true)
+const res=await axios.post("/api/search",{location,pinCode})
+console.log("response from search",res.data)
+localStorage.setItem("searchData",JSON.stringify(res.data))
+
+  setButtonLoading(false)
+  setToggle((prev)=>(!prev ))
+
+
+
+
+
       router.push('/search')
+      setLoadingScreen(false)
     }
    
 
@@ -47,7 +70,8 @@ export default function MscreenSearchBar({data}) {
   //   console.log("data from search bar",location,pinCode);
   // }
   return (
-    <main className=' absolute hidden md:block top-24 left-1/2 rounded-xl shadow-black/50  shadow-2xl -translate-x-1/2 bg-white p-4  w-max'>
+  <>
+    <main className=' absolute hidden md:block top-24 left-1/2 rounded-xl shadow-black/50  shadow-2xl -translate-x-1/2 bg-white p-4  w-[50%]'>
        <div className=' w-full h-full flex flex-col gap-2'>
       {/* text section */}
       <main className=' w-full h-max'>
@@ -62,8 +86,8 @@ export default function MscreenSearchBar({data}) {
        <section className=' w-full h-full flex flex-row items-center gap-14'>
 <MscreenText title='Pincode' placeholder='Code' type='number' value={pinCode} setValue={setPinCode} />
 <MscreenText title='Location' placeholder='Where?' type='text' value={location} setValue={setLocation} />
-<div className=' w-[30%] h-full flex justify-center items-center'>
-<Button buttonTitle={"Search"} handleSubmit={handleSubmit} />
+<div className=' w-[40%] h-full pt-3 flex justify-center items-center'>
+<Button buttonTitle={"Search"} handleSubmit={handleSubmit} isLoading={buttonLoading} />
 </div>
 
 
@@ -71,5 +95,9 @@ export default function MscreenSearchBar({data}) {
        </div>
       
     </main>
+    {
+      loadingScreen && <LoadingScreen/>
+    }
+  </>
   )
 }
