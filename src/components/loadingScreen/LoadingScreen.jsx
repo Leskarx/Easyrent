@@ -7,7 +7,7 @@ export default function LoadingScreen() {
    <>
     <div className=' fixed flex justify-center items-center inset-0 bg-slate-200  opacity-55 z-[1100]'>
   </div>
-  <main className=' inset-0 z-[1101] fixed flex justify-center items-center'>
+  <main className=' inset-0 z-[5000] fixed flex justify-center items-center'>
   <div className="loader"></div> 
   </main>
    </>

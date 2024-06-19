@@ -53,7 +53,7 @@ import { set } from 'date-fns';
 
 
 
-   <MobileSearchBar data={data}/>
+   <MobileSearchBar data={data} setToggle={setToggle}/>
 
 
    </main>
