@@ -1,11 +1,11 @@
 "use client";
 import React from 'react'
-import Image from 'next/image'
+
 import { useRouter } from 'next/navigation'
-import { signOut } from 'next-auth/react';
+
 import LogoSectionNav from './LogoSectionNav';
 import RightNavbarSection from './RightNavbarSection';
-import MobileScreenNavbar from './MobileScreenNavbar';
+
 
 export default function Navbar({user,authPage=false,homePage=false}) {
   const router=useRouter();

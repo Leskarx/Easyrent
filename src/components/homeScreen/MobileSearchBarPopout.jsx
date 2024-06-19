@@ -29,6 +29,7 @@ export default function MobileSearchBarPopout({setPopout,data,setToggle}) {
   const res=await axios.post("/api/search",{location,pinCode})
   console.log("response from search",res.data)
   localStorage.setItem("searchData",JSON.stringify(res.data))
+  router.push('/search')
   
     setButtonLoading(false)
     setToggle((prev)=>(!prev ))
@@ -37,7 +38,7 @@ export default function MobileSearchBarPopout({setPopout,data,setToggle}) {
   
   
   
-        router.push('/search')
+       
       //   setLoadingScreen(false)
       setPopout(false)
       }
