@@ -12,6 +12,7 @@ export default async function page({params}) {
    console.log("listing detail page owner ",owner);
    
   return (
+    
    <ListingDetail listingData={listingData} ownerData={owner} currentUser={user} />
   
   )

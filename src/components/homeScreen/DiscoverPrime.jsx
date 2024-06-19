@@ -6,7 +6,7 @@ import { RiArrowRightSLine } from "react-icons/ri";
 export default function DiscoverPrime() {
   return (
     <div className='flex flex-col gap-4  w-full'>
-        <h4 className=' font-bold text-2xl text-slate-800'>Explore our new Prime Rooms</h4>
+        <h4 className=' lg:font-bold font-semibold text-xl lg:text-2xl text-slate-800'>Explore our new Prime Rooms</h4>
 
         <div className='relative w-full h-[310px]' >
             <div className='inset-0 absolute '>
@@ -39,7 +39,7 @@ export default function DiscoverPrime() {
                 priority
 
                 />
-                <button className=' font-semibold text-sm text-slate-900 bg-white rounded-md px-4 py-3 gap-8 flex text-center '>
+                <button className=' font-semibold text-sm text-slate-900 bg-white rounded-md px-4 py-3 gap-8 w-max flex text-center '>
                 DISCOVER PRIME ROOMS
                 <RiArrowRightSLine size={20} />
                 </button>

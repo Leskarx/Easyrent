@@ -7,6 +7,7 @@ import LargeBookingSection from './LargeBookingSection';
 export default function PriceSection({listingData,currentUser}) {
   const [islarge, setislarge] = useState(false)
   const [date, setDate] = useState(null);
+  islarge?document.body.style.overflow='hidden':document.body.style.overflow='auto'
 
     function toggleLarge(){
       setislarge((prev)=>!prev)
@@ -26,7 +27,7 @@ export default function PriceSection({listingData,currentUser}) {
   </div>
   {
     islarge&&(
-      <LargeBookingSection toggleLarge={toggleLarge} listingData={listingData} date={date} setDate={setDate} currentUser={currentUser} />
+      <LargeBookingSection  toggleLarge={toggleLarge} listingData={listingData} date={date} setDate={setDate} currentUser={currentUser} />
 
     )
   }

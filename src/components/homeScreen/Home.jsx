@@ -1,16 +1,19 @@
+"use client";
 import React from 'react'
 import SearchBar from './SearchBar'
-import getListing from '@/actions/getListing/getListing'
+
 import Card from '../utils/card/Card'
 import DiscoverPrime from './DiscoverPrime'
-import getUser from '@/actions/nextAuthActions/getUser'
+import { useEffect } from 'react'
 import Navbar from '../utils/navbar/Navbar'
 import MobileScreenNavbar from '../utils/navbar/MobileScreenNavbar'
 import MobileScreenNavWithSearch from '../utils/navbar/MobileScreenNavWithSearch'
 
-export default async function HomeScreen() {
-  const user=await getUser()
-  const listing=await getListing()
+export default  function HomeScreen({user,listing}) {
+  useEffect(()=>{
+    localStorage.clear()
+  },[])
+
   // console.log("hehehh",listing)
   return (
     <div className={` ${(user!=null)? "block":"hidden md:block" }       w-full  `}>

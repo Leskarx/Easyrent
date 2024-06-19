@@ -12,6 +12,7 @@ import toast from 'react-hot-toast';
 
 export default function LargeBookingSection({toggleLarge,date,setDate,listingData,currentUser}) {
   const [isLoading, setIsLoading] = useState(false)
+ 
   
   const handleSelect = (data) => {
     setDate(data)
@@ -57,7 +58,7 @@ animate={{
   opacity: 1
 }}
 
-className=' w-[90%] md:w-max h-max flex flex-col  items-start gap-2 md:gap-1 bg-white rounded-lg shadow-2xl shadow-black p-4 md:px-10'
+className=' w-full md:w-max h-max flex flex-col  items-start gap-2 md:gap-1 bg-white rounded-lg shadow-2xl shadow-black p-4 md:px-10'
     
     >
       <div className=' cursor-pointer' onClick={()=>{
