@@ -44,9 +44,9 @@ export default function SearchPage({user}) {
   
 {/* text section */}
 <section className=' w-full h-max flex flex-col gap-1'>
-<h1 className=' font-bold text-2xl text-slate-800' >Based on your search result</h1>
+<h1 className=' font-bold text-lg md:text-2xl text-slate-800' >Based on your search result</h1>
 <p className=' font-light text-sm'>
-  Explore the best PG and rent houses in your city
+{listing?.data?.length} results found
 </p>
 </section>
 
