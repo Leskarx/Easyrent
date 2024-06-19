@@ -6,7 +6,7 @@ export default function SecondSection({listingData,currentUser}) {
   return (
     <div className=" w-full h-max   ">
 
-<section className=' mt-5 md:mt-0 w-full h-[380px] md:h-24 flex md:flex-row justify-center items-center flex-col gap-5'>
+<section className={`${(!listingData||listingData?.imagesSrc.length==0  )?"h-max ":"h-[380px] lg:h-24 "}   mt-5 md:mt-0 w-full  flex lg:flex-row justify-center items-center flex-col gap-5`}>
 <MultipleImageSection listingData={listingData}/>
 
 <PriceSection listingData={listingData} currentUser={currentUser}/>

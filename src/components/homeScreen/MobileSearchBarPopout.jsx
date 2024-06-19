@@ -77,7 +77,7 @@ export default function MobileSearchBarPopout({setPopout,data,setToggle}) {
    <FaArrowLeft size={16} />
    </div>
    <div>
-      <p className=' font-semibold text-xl '>Studying outside your Home-Town?</p>
+      <p className=' font-semibold text-lg '>Studying outside your Home-Town?</p>
       <p className=' font-light text-sm'>Search your perfect home in seconds</p>
    </div>
     <MscreenText value={pinCode} setValue={setPinCode} title='Pincode' type='number' placeholder="Code" />

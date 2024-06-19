@@ -6,6 +6,8 @@ import { Calendar } from 'react-date-range'
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import axios from 'axios';
+import { FaArrowLeft } from "react-icons/fa";
+import { motion } from "framer-motion"
 import toast from 'react-hot-toast';
 
 export default function LargeBookingSection({toggleLarge,date,setDate,listingData,currentUser}) {
@@ -38,28 +40,55 @@ export default function LargeBookingSection({toggleLarge,date,setDate,listingDat
 
   return (
    <>
-    <main className=' fixed inset-0 bg-slate-600 z-20 opacity-90 '>
+    <main className=' fixed inset-0 bg-slate-900 opacity-75 z-20  '>
 
       
 </main>
 <main className=' fixed inset-0 z-50 flex justify-center items-center '>
+  <main className='flex justify-center items-center  w-full h-full'>
+    <motion.div
+    
+ initial={{
+  scale: 0.94,
+  opacity: 0
+}}
+animate={{
+  scale: 1,
+  opacity: 1
+}}
 
-    <div className='relative min-w-max  h-[80%] md:h-[60%]  px-10 py-4 bg-white rounded-xl'>
-  <section className=' font-normal flex justify-center text-xl'><p>Select the starting date </p></section>
-        
-        
-        <div className='w-full h-max'>
+className=' w-[90%] md:w-max h-max flex flex-col  items-start gap-2 md:gap-1 bg-white rounded-lg shadow-2xl shadow-black p-4 md:px-10'
+    
+    >
+      <div className=' cursor-pointer' onClick={()=>{
+      toggleLarge()
+   }}>
+   <FaArrowLeft size={16} />
+   </div>
+
+   <section className=' font-normal flex w-full justify-center text-xl'><p>Select the starting date </p></section>
+
+   <div className='w-full h-max'>
             <section className=' flex justify-center h-max items-center p-3'>
                 <Calendar date={date} onChange={handleSelect}  />
                 </section>
 
-          <section className=' mt-8  absolute md:bottom-6 w-[80%] left-1/2  -translate-x-1/2 '>  <Button buttonTitle='Book' isLoading={isLoading} handleSubmit={handleBook } /></section>
-        </div>
-        <div onClick={toggleLarge} className=' absolute -top-10 text-white underline right-14 cursor-pointer'>
-            <p>Close</p>
+          
         </div>
 
-    </div>
+   <Button buttonTitle='Book' handleSubmit={handleBook} isLoading={isLoading} />
+
+
+
+
+
+
+      
+    </motion.div>
+
+
+  </main>
+
 
 
 </main>

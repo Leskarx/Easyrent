@@ -15,9 +15,9 @@ export default function PriceSection({listingData,currentUser}) {
 
   return (
  <>
-    <div className='  flex   justify-center items-center w-full md:w-[40%] h-[40%] md:h-full gap-4 md:gap-10'>
-    <p className=' text-center'><span className=' text-2xl md:text-4xl font-semibold'>₹ {listingData?.price }</span>/<span className=' font-light'>{listingData?.intervel||"monthly"}</span> </p>
-<div className=' w-[40%] md:w-[30%]'>
+    <div className='  flex   justify-center items-center w-full lg:w-[40%] h-[40%] lg:h-full gap-4 lg:gap-10'>
+    <p className=' text-center'><span className=' text-2xl  font-semibold'>₹ {listingData?.price }</span>/<span className=' font-light'>{listingData?.intervel||"monthly"}</span> </p>
+<div className=' w-[40%] lg:w-[50%]'>
     <Button buttonTitle='Book now' isLoading={false} handleSubmit={toggleLarge} />
 </div>
 

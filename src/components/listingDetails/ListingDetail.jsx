@@ -13,7 +13,7 @@ export default function ListingDetail({listingData,ownerData,currentUser}) {
         <div className=' flex flex-col gap-3  w-full h-full'>
 
           <div className='flex justify-between items-center w-full '>
-            <h1 className=' text-2xl md:text-4xl font-semibold'>{listingData?.locationName}</h1>
+            <h1 className=' text-2xl lg:text-4xl font-semibold'>{listingData?.locationName}</h1>
             <div className=' flex justify-center items-center gap-8'>
               <p className=' underline text-sm'>Share</p>
               <p className=' underline text-sm'>Save</p>
