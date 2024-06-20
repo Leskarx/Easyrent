@@ -19,7 +19,7 @@ export default function MyBooking({booking,user}) {
   return (
     <>
      <MobileScreenNavbar/>
-     <section className=' overflow-x-hidden relative flex flex-col w-full h-max '>
+     <section className=' overflow-x-hidden relative flex flex-col w-screen h-max '>
 <Navbar user={user} homePage={true} />
    <SearchBar setToggle={setToggle}/>
    </section>
@@ -30,7 +30,7 @@ export default function MyBooking({booking,user}) {
         <EmptyPage otherPage={true}/>
         
         :
-        <section className='flex absolute top-16 sm:top-24 lg:top-24 flex-col gap-4 w-screen h-max min-h-full px-6  pb-10 pt-16 md:px-12 md:py-20 overflow-x-hidden  bg-white' >
+        <section className='flex  absolute top-16 sm:top-24 lg:top-24 flex-col gap-4 w-screen h-max min-h-full px-6  pb-10 pt-16 lg:px-10 lg:py-20 overflow-x-hidden  bg-white' >
 
   
   

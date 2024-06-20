@@ -18,7 +18,7 @@ export default function Card2({title,src,price,location,rating,id,date,status,re
   const router=useRouter()
   return (
  <>
-   <section  className='col-span-1  group  '>
+   <section  className='col-span-1  group overflow-x-hidden  '>
    <div className="flex flex-col  justify-center items-center gap-2 w-full h-max">
    <div onClick={()=>{
     setIsloading(true)
