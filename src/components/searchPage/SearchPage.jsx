@@ -55,7 +55,7 @@ export default function SearchPage({user}) {
 {
 listing?.data?.map((items)=>{
   return(
-    <Card key={items.id} id={ items.id} price={items.price} rating={items.rating} location={items.location} title={items.locationName} src={items.mainImageSrc}  />
+    <Card key={items.id} id={items.id} price={items.price} rating={items.rating} location={items.location} title={items.locationName} src={items.mainImageSrc}  />
   )
 })
 

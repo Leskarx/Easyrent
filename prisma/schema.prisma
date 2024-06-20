@@ -49,6 +49,8 @@ model User {
   emailVerified DateTime?
   image         String?
   hasedPassword String?
+   gender       String?
+  ethnicity   String?
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
   favroiteIds String[] @db.ObjectId
@@ -73,6 +75,13 @@ createdAt DateTime @default(now())
   category String?
   roomCount Int
   bathroomCount Int
+  type String?
+  paymentInterval String?
+  waterSupply String?
+  electricitySupply String?
+  bathroomType String?
+  genderType String?
+  tagLine String?
   isVerified Boolean? @default(false)
   available Boolean? @default(true)
   rating Int? @default(0)
@@ -91,6 +100,8 @@ model Reservation{
    listingId String @db.ObjectId
    startDate DateTime?
    endDate DateTime?
+   status String? @default("pending")
+
    totalPrice Int?
    createdAt DateTime @default(now())
 
@@ -99,3 +110,6 @@ model Reservation{
 
 
 }
+
+ 
+  

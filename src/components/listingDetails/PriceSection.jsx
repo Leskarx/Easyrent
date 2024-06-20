@@ -1,5 +1,5 @@
 "use client";
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '../utils/Button/Button'
 import { useState } from 'react';
 import LargeBookingSection from './LargeBookingSection';
@@ -7,7 +7,9 @@ import LargeBookingSection from './LargeBookingSection';
 export default function PriceSection({listingData,currentUser}) {
   const [islarge, setislarge] = useState(false)
   const [date, setDate] = useState(null);
-  islarge?document.body.style.overflow='hidden':document.body.style.overflow='auto'
+  useEffect(()=>{
+    islarge?document.body.style.overflow='hidden':document.body.style.overflow='auto'
+  },[islarge])
 
     function toggleLarge(){
       setislarge((prev)=>!prev)

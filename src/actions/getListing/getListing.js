@@ -6,6 +6,7 @@ async function getListing(){
 
 } 
 export  async function getListingById(id){
+    console.log("get listing by id",id);
     const listing= await prisma.listing.findUnique({
         where:{
             id:id

@@ -86,8 +86,19 @@ export async function POST(request){
            
           }
           if(combineResult){
+            let properties = combineResult
+            
+            properties.forEach(property => {
+              property.id = property._id.$oid;
+              delete property._id; // Optionally delete the original _id field
+              
+              property.userId = property.userId.$oid;
+            });
+            
+          
+           
               return NextResponse.json({
-                  data:combineResult
+                  data:properties
               })
           }
 
@@ -95,6 +106,7 @@ export async function POST(request){
 
     if(location && !pinCode){
         data=await searchByLocation(location)
+        // console.log("data only location..........>",data)
         return NextResponse.json({
             data:data
         })

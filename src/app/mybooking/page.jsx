@@ -1,11 +1,13 @@
 import React from 'react'
+import getMybooking from '@/actions/getMybooking/getMybooking'
+import getUser from '@/actions/nextAuthActions/getUser'
+import MyBooking from '@/components/Booking/Mybooking'
 
-export default function page() {
+export default async function page() {
+  const user= await getUser()
+  const booking = await getMybooking(user)
+ 
   return (
-    <div className=' text-white'>
-
-my booking page
-
-    </div>
+    <MyBooking booking={booking} user={user} />
   )
 }
