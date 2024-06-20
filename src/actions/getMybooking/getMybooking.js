@@ -11,6 +11,9 @@ export default async function getMybooking(user){
     const reservation=await prisma.reservation.findMany({
         where:{
             userId:userId
+        },
+        orderBy: {
+            createdAt: 'desc'
         }
     })
 
@@ -27,7 +30,7 @@ await Promise.all(
             }
         })
   
-        listing={...listing,startDate:items.startDate,status:items?.status}
+        listing={...listing,startDate:items.startDate,status:items?.status,reservationId:items.id}
         data=[...data,listing]
 
        

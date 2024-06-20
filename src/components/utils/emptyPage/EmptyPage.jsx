@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function EmptyPage() {
+export default function EmptyPage({otherPage=false}) {
   return (
-    <section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-screen h-full px-6  pb-10 pt-16 md:px-12 md:py-20  bg-white' >
+    <section className={` ${otherPage?"md:top-24 ":"md:top-72 "}  flex absolute top-16 sm:top-24 flex-col gap-4 w-screen h-full px-6  pb-10 pt-16 md:px-12 md:py-20  bg-white`} >
 
   
   

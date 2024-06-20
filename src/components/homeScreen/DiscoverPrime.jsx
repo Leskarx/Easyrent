@@ -15,7 +15,7 @@ export default function DiscoverPrime() {
                 <Image
                 className=' rounded'
                 alt='Image'
-                src={'/explorePrime.jpg'}
+                src={'/new4.jpg'}
                 priority
                 quality={100}
                 fill
