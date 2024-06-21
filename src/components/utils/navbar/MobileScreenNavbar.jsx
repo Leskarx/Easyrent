@@ -107,10 +107,10 @@ function ShowMenu({user,showMenu,setMenu=()=>{}}){
        </div>
 
         <MenuText link='/profile' text="Profile"/>
-        <MenuText link='myfavourite' text="My favourite"/>
-        <MenuText link='mybooking' text="My booking"/>
-        <MenuText link='manageproperties' text="Manage properties"/>
-        <MenuText link='aboutus' text="About us"/>
+        <MenuText link='/myfavourite' text="My favourite"/>
+        <MenuText link='/mybooking' text="My booking"/>
+        <MenuText link='/manageproperties' text="Manage properties"/>
+        <MenuText link='/aboutus' text="About us"/>
         <div onClick={()=>{
 signOut()
         }}>
