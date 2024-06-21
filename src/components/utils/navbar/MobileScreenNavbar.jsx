@@ -2,7 +2,6 @@
 import React,{useState} from 'react'
 import { MdHomeFilled } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
-import { IoMdChatbubbles } from "react-icons/io";
 import { IoMdChatboxes } from "react-icons/io";
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation'
@@ -10,12 +9,13 @@ import { motion } from 'framer-motion';
 import { TiArrowLeftThick } from "react-icons/ti";
 import { AnimatePresence } from 'framer-motion';
 import { NavImage } from './ProfileSectionNavbar';
-import Link from 'next/link';
 import { signOut } from 'next-auth/react';
 import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
 
 export default function MobileScreenNavbar({user}) {
   const [showMenu, setMenu] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [Menuloading, SetMenuloading] = useState(false)
   const pathname = usePathname()
   const router = useRouter();
  
@@ -26,10 +26,21 @@ export default function MobileScreenNavbar({user}) {
 
 
   function clickHome(){
+    setLoading(true)
     router.push('/')
   }
   return (
     <>
+    {
+      loading && (
+        <LoadingScreen/>
+      )
+    }
+     {
+      Menuloading && (
+        <LoadingScreen/>
+      )
+    }
     <div className=" relative w-full h-full block md:hidden    ">
         <section className=' fixed   w-[140px] h-[40px] bg-slate-300 backdrop-blur-[0.3rem] bg-opacity-80    rounded-full shadow-lg shadow-black/[0.03] border-2 border-opacity-65    left-1/2 -translate-x-1/2  bottom-2 z-[100] text-black '>
 
@@ -57,7 +68,7 @@ export default function MobileScreenNavbar({user}) {
        <AnimatePresence>
        {
         showMenu &&(
-          <ShowMenu  showMenu={showMenu} user={user} setMenu={setMenu}/>
+          <ShowMenu SetMenuloading={SetMenuloading}  showMenu={showMenu} user={user} setMenu={setMenu}/>
 
         )
 
@@ -70,7 +81,7 @@ export default function MobileScreenNavbar({user}) {
 }
 
 
-function ShowMenu({user,showMenu,setMenu=()=>{}}){
+function ShowMenu({user,SetMenuloading,setMenu=()=>{}}){
   return (
    <>
    
@@ -107,11 +118,11 @@ function ShowMenu({user,showMenu,setMenu=()=>{}}){
        <NavImage user={user} mobile/>
        </div>
 
-        <MenuText link='/profile' text="Profile"/>
-        <MenuText link='/myfavourite' text="My favourite"/>
-        <MenuText link='/mybooking' text="My booking"/>
-        <MenuText link='/manageproperties' text="Manage properties"/>
-        <MenuText link='/aboutus' text="About us"/>
+        <MenuText SetMenuloading={SetMenuloading} link='/profile' text="Profile"/>
+        <MenuText SetMenuloading={SetMenuloading} link='/myfavourite' text="My favourite"/>
+        <MenuText SetMenuloading={SetMenuloading} link='/mybooking' text="My booking"/>
+        <MenuText SetMenuloading={SetMenuloading} link='/manageproperties' text="Manage properties"/>
+        <MenuText SetMenuloading={SetMenuloading} link='/aboutus' text="About us"/>
         <div onClick={()=>{
 signOut()
         }}>
@@ -156,23 +167,22 @@ function MobileBsection({Icon,size=30,colour='black',onclick=()=>{}}) {
   )
 }
 
-function MenuText({text,link=""}){
-  const [loading, setLoading] = useState(false)
+function MenuText({text,link="",SetMenuloading=()=>{}}){
+  const pathname = usePathname()
   const router = useRouter()
   return (
     
    <>
     <div onClick={()=>{
-      setLoading(true)
+      SetMenuloading(true)
       router.push(link)
+      if(pathname==link){
+        SetMenuloading(false)
+      }
     }} className='  font-semibold w-full py-2 pl-10 border-b-2'>
       {text}
     </div>
-    {
-      loading && (
-        <LoadingScreen/>
-      )
-    }
+   
    </>
    
   )

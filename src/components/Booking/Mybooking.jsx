@@ -32,7 +32,7 @@ export default function MyBooking({booking,user}) {
         <EmptyPage otherPage={true}/>
         
         :
-        <section className='flex  absolute top-16 sm:top-24 md:top-24 flex-col gap-4 w-full h-max min-h-full px-6  pb-10 pt-16 md:px-10 md:py-20 overflow-x-hidden  bg-white' >
+        <section className='flex  absolute top-16 sm:top-24 md:top-24 flex-col gap-4 w-full h-max min-h-screen px-6  pb-16 pt-16 md:px-10 md:py-20 overflow-x-hidden  bg-white' >
 
   
   

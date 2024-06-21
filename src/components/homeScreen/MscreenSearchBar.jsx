@@ -6,11 +6,13 @@ import { useEffect,useState } from 'react';
 import { useRouter } from 'next/navigation';
 import LoadingScreen from '../loadingScreen/LoadingScreen';
 import axios from 'axios';
+import { usePathname } from 'next/navigation';
 
 
 
 
 export default function MscreenSearchBar({data,setToggle}) {
+  const pathname = usePathname()
   const [buttonLoading, setButtonLoading] = useState(false)
   const [loadingScreen, setLoadingScreen] = useState(false)
   const router=useRouter()
@@ -31,7 +33,10 @@ localStorage.setItem("searchData",JSON.stringify(res.data))
 router.push('/search')
 
 
+ if(pathname=="/search"){
   setButtonLoading(false)
+  setLoadingScreen(false)
+ }
   setToggle((prev)=>(!prev ))
 
 
@@ -39,7 +44,7 @@ router.push('/search')
 
 
       
-      setLoadingScreen(false)
+      
     }
    
 

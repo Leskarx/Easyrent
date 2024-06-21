@@ -8,9 +8,11 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import LoadingScreen from '../loadingScreen/LoadingScreen';
+import { usePathname } from 'next/navigation';
 
 
 export default function MobileSearchBarPopout({setPopout,data,setToggle}) {
+   const pathname = usePathname()
    const router=useRouter()
    const [buttonLoading,setButtonLoading] = useState(false)
    const [loadingScreen,setLoadingScreen] = useState(false)
@@ -31,7 +33,10 @@ export default function MobileSearchBarPopout({setPopout,data,setToggle}) {
   localStorage.setItem("searchData",JSON.stringify(res.data))
   router.push('/search')
   
-    setButtonLoading(false)
+   if(pathname=="/search"){
+      setButtonLoading(false)
+      setPopout(false)
+   }
     setToggle((prev)=>(!prev ))
   
   
@@ -40,7 +45,7 @@ export default function MobileSearchBarPopout({setPopout,data,setToggle}) {
   
        
       //   setLoadingScreen(false)
-      setPopout(false)
+      
       }
      
   
