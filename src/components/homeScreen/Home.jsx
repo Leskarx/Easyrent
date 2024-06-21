@@ -19,7 +19,7 @@ export default  function HomeScreen({user,listing}) {
   return (
     <div className={` ${(user!=null)? "block":"hidden md:block" }       w-full  `}>
 
-     <MobileScreenNavbar/>
+     <MobileScreenNavbar user={user}/>
 
      
 <section className=' relative flex flex-col w-full h-max '>
