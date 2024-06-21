@@ -1,9 +1,15 @@
 import prisma from "../../../prisma/prismaClient";
 export default async function getMybooking(user){
     // console.log(user);
+    if(
+        !user
+    ){
+        return null
+    }       
+    
     
     const userId=user.id;
-    if(!userId || !user){
+    if(!userId ){
         return null
     }
     

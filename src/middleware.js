@@ -15,7 +15,8 @@ export async function middleware(request) {
     }else if(!token && (
     
         url.pathname.startsWith("/listing")||
-        url.pathname.startsWith("/addproperties")
+        url.pathname.startsWith("/addproperties")||
+        url.pathname.startsWith("/mybooking")
     
     )){
         return NextResponse.redirect(new URL('/login', request.url))
@@ -30,6 +31,7 @@ export const config = {
         "/signup",     
         "/listing/:id*",
         "/addproperties",
+        "/mybooking",
 
     ]
 }

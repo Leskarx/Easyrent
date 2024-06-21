@@ -8,6 +8,9 @@ export default async function page() {
   const booking = await getMybooking(user)
  
   return (
-    <MyBooking booking={booking} user={user} />
+    <main className=' '>
+      <MyBooking booking={booking} user={user} />
+    </main>
+    
   )
 }
