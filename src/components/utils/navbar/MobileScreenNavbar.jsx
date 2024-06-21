@@ -121,6 +121,7 @@ function ShowMenu({user,SetMenuloading,setMenu=()=>{}}){
         <MenuText SetMenuloading={SetMenuloading} link='/profile' text="Profile"/>
         <MenuText SetMenuloading={SetMenuloading} link='/myfavourite' text="My favourite"/>
         <MenuText SetMenuloading={SetMenuloading} link='/mybooking' text="My booking"/>
+        <MenuText SetMenuloading={SetMenuloading} link='/mybooking' text="Add properties"/>
         <MenuText SetMenuloading={SetMenuloading} link='/manageproperties' text="Manage properties"/>
         <MenuText SetMenuloading={SetMenuloading} link='/aboutus' text="About us"/>
         <div onClick={()=>{

@@ -16,7 +16,7 @@ user?
 <NavbarMenuText Title="My favourite" link='/favourite'/>
 <NavbarMenuText Title="My booking" link='/mybooking'/>
 <NavbarMenuText Title="Manage your properties" link='/favourite'/>
-<NavbarMenuText Title="About us" link='aboutus'/>
+<NavbarMenuText Title="About us" link='/aboutus'/>
 
 <div onClick={ ()=>{
     signOut()
