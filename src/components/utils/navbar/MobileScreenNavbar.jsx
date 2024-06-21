@@ -12,6 +12,7 @@ import { AnimatePresence } from 'framer-motion';
 import { NavImage } from './ProfileSectionNavbar';
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
+import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
 
 export default function MobileScreenNavbar({user}) {
   const [showMenu, setMenu] = useState(false)
@@ -56,7 +57,7 @@ export default function MobileScreenNavbar({user}) {
        <AnimatePresence>
        {
         showMenu &&(
-          <ShowMenu showMenu={showMenu} user={user} setMenu={setMenu}/>
+          <ShowMenu  showMenu={showMenu} user={user} setMenu={setMenu}/>
 
         )
 
@@ -123,7 +124,7 @@ signOut()
         
         
         
-             hii
+        
            </motion.main>
             )
       
@@ -156,11 +157,23 @@ function MobileBsection({Icon,size=30,colour='black',onclick=()=>{}}) {
 }
 
 function MenuText({text,link=""}){
+  const [loading, setLoading] = useState(false)
+  const router = useRouter()
   return (
-    <Link href={link}>
-    <div className='  font-semibold w-full py-2 pl-10 border-b-2'>
+    
+   <>
+    <div onClick={()=>{
+      setLoading(true)
+      router.push(link)
+    }} className='  font-semibold w-full py-2 pl-10 border-b-2'>
       {text}
     </div>
-    </Link>
+    {
+      loading && (
+        <LoadingScreen/>
+      )
+    }
+   </>
+   
   )
 }

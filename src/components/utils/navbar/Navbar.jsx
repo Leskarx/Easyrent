@@ -1,14 +1,14 @@
 "use client";
 import React from 'react'
 
-import { useRouter } from 'next/navigation'
+
 
 import LogoSectionNav from './LogoSectionNav';
 import RightNavbarSection from './RightNavbarSection';
 
 
 export default function Navbar({user,authPage=false,homePage=false}) {
-  const router=useRouter();
+
   return (
   <>
    <main style={{
