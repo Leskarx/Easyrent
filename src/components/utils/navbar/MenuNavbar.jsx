@@ -12,10 +12,10 @@ export default function MenuNavbar({user}) {
 user?
 // with login
 <main className=' flex flex-col gap-2'>
-<NavbarMenuText Title="Profile" link='/favourite'/>
+<NavbarMenuText Title="Profile" link='/profile'/>
 <NavbarMenuText Title="My favourite" link='/favourite'/>
 <NavbarMenuText Title="My booking" link='/mybooking'/>
-<NavbarMenuText Title="Manage your properties" link='/favourite'/>
+<NavbarMenuText Title="Manage your properties" link='/manageproperties'/>
 <NavbarMenuText Title="About us" link='/aboutus'/>
 
 <div onClick={ ()=>{

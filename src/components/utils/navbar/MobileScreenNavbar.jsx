@@ -12,7 +12,7 @@ import { NavImage } from './ProfileSectionNavbar';
 import { signOut } from 'next-auth/react';
 import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
 
-export default function MobileScreenNavbar({user}) {
+export default function MobileScreenNavbar({user,hidebanner=false}) {
   const [showMenu, setMenu] = useState(false)
   const [loading, setLoading] = useState(false)
   const [Menuloading, SetMenuloading] = useState(false)
@@ -57,7 +57,7 @@ export default function MobileScreenNavbar({user}) {
         <main style={{
     backgroundImage: "url('/bg.jpg')",
     backgroundSize: "cover",
-   }}  className='  block md:hidden  w-full h-max py-10 text-white'>
+   }}  className={` ${hidebanner?"hidden":" block md:hidden"}   w-full h-max py-10 text-white`}>
             
 
         </main>
