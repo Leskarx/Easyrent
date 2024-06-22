@@ -12,24 +12,31 @@ export default function Card2({title,src,price,location,rating,id,date,status,re
   if(status=="pending"){
     status="Request sent"
   }
+  if(status=="accepted"){
+    status="Booking confirmed"
+
+  }
+  if(status=="rejected"){
+    status="Booking rejected"
+  }
   
  
     const day=date.toDateString()
   const router=useRouter()
   return (
  <>
-   <section  className='col-span-1  group   '>
+   <section  className='col-span-1  group border-2 rounded-xl shadow-lg shadow-black/15   '>
    <div className="flex flex-col  justify-center items-center gap-2 w-full h-max">
    <div onClick={()=>{
     setIsloading(true)
 
       router.push(`/listing/${id}`)
     
-   }} className=' relative cursor-pointer rounded-xl w-full h-[260px] bg-slate-200  overflow-hidden '>
+   }} className=' relative cursor-pointer rounded-t-xl w-full h-[260px] bg-slate-200  overflow-hidden '>
       
 
       <Image
-      className=' object-cover  w-full h-full rounded-lg group-hover:scale-110 transition duration-300 ease-in-out'
+      className=' object-cover  w-full h-full rounded-t-xl group-hover:scale-110 transition duration-300 ease-in-out'
       src={src||"/Frame 5.png"} 
       
       alt='Image'
@@ -45,9 +52,9 @@ export default function Card2({title,src,price,location,rating,id,date,status,re
      
     
   </div>
-  <div className=" flex flex-col relative  w-full ">
-  <p className=' font-semibold text-lg'>{location} (<span className=' text-sm'>{title}</span>)</p>
-    <p className=' font-semibold text-slate-800 text-base'>{day}</p>
+  <div className=" flex flex-col p-2 relative  w-full ">
+  <p className=' flex items-center font-semibold text-lg'>{location} (<span className=' text-sm text-center '>{title}</span>)</p>
+    <p className='  font-semibold flex justify-between text-slate-800 text-sm lg:text-base'>Booked on : <span>{day}</span></p>
     <p><span className=' text-base font-medium  '>₹ {price}</span> <span className=' font-light text-sm '>monthly</span> </p>
 
     <main className=' w-full py-2 flex items-center justify-between gap-2'>

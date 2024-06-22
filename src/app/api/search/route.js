@@ -22,8 +22,8 @@ async function searchByPincode(pinCode){
 }
 export async function POST(request){
     const body = await request.json();
-    const location = body.location.toLowerCase();
-    const pinCode = body.pinCode;
+    const location = body.location.toLowerCase().trim();
+    const pinCode = body.pinCode.trim();
 
 
    let data;

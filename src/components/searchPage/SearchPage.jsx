@@ -50,12 +50,12 @@ export default function SearchPage({user}) {
 </p>
 </section>
 
-<div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-8  w-full '>
+<div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-8  w-full '>
 
 {
 listing?.data?.map((items)=>{
   return(
-    <Card key={items.id} id={items.id} price={items.price} rating={items.rating} location={items.location} title={items.locationName} src={items.mainImageSrc}  />
+    <Card key={items.id} type={items.type} id={items.id} price={items.price} rating={items.rating} location={items.location} title={items.locationName} src={items.mainImageSrc}  />
   )
 })
 
