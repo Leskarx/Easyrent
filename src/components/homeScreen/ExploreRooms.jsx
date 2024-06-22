@@ -6,7 +6,7 @@ export default function ExploreRooms() {
     <main className=' w-full py-2 h-max flex-col flex gap-2'>
       <div className=' w-full h-max'>
       <h4 className=' lg:font-bold font-semibold text-xl lg:text-2xl text-slate-800'>
-        Explore Rooms
+        Explore Categories
       </h4>
       </div>
 {/* multiple section */}
