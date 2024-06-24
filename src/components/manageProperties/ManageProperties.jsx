@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useEffect } from 'react'
 import Navbar from '@/components/utils/navbar/Navbar'
@@ -9,6 +8,7 @@ import Card3 from '../utils/card/Card3';
 import { useRouter } from 'next/navigation';
 import { TiArrowLeftThick } from "react-icons/ti";
 import LoadingScreen from '../loadingScreen/LoadingScreen';
+import CancelLargeSection from '../Booking/CancelLargeSection';
 
 export default function ManageProperties({booking,user}) {
     const router=useRouter()
@@ -16,7 +16,7 @@ export default function ManageProperties({booking,user}) {
   const [toggle,setToggle]=useState(false)
   const [loadingScreen,setLoadingScreen]=useState(false)
   useEffect(()=>{
-    // router.refresh()
+    router.refresh()
 
   },[])
 
@@ -26,6 +26,7 @@ export default function ManageProperties({booking,user}) {
       loadingScreen && <LoadingScreen/>
 
     }
+   
     <div className=' w-full'>
       
      <MobileScreenNavbar user={user} hidebanner/>

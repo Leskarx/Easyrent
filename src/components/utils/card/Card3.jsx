@@ -10,6 +10,7 @@ import CancelLargeSection from '@/components/Booking/CancelLargeSection';
 import { MdModeEdit } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import ToggleButton from '../Button/ToggleButton';
+import { set } from 'date-fns';
 export default function Card2({title,src,price,location,isAvilable,id}) {
   const [isloading,setIsloading]=useState(false)
   const [toggle,setToggle]=useState(false)
@@ -36,7 +37,9 @@ export default function Card2({title,src,price,location,isAvilable,id}) {
       /> 
 
 <section className=' absolute top-3 right-3 flex flex-row-reverse  gap-3   md:gap-1'>
-<div title='Delete' className='  bg-black rounded-full p-1  '>
+<div onClick={()=>{
+  setToggle(true)
+}} title='Delete' className='  bg-black rounded-full p-1  '>
 <MdDelete size={22} color='red'/>
 </div>
 
@@ -80,11 +83,8 @@ export default function Card2({title,src,price,location,isAvilable,id}) {
     )
    }
    {
-    toggle && (
-       <CancelLargeSection setToggle={setToggle} reservationId={reservationId}/>
-    
-    )
-   }
+      toggle && <CancelLargeSection setToggle={setToggle} id={id} route="/api/deleteproperty" toastMessage="Deleted successfully" text='Do you want to delete your property?' smallText='Action cannot be undo'/>
+    }
  </>
   )
 }

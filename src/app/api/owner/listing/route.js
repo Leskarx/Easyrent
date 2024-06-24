@@ -20,6 +20,16 @@ export async function POST(request) {
         data:{
             userId:user.id,
             location:data.location,
+
+            type:data?.type,
+            paymentInterval:data?.paymentInterval,
+            waterSupply:data?.waterSupply,
+            electricitySupply:data?.electricitySupply,
+            bathroomType:data?.bathroomType,
+            genderType:data?.genderType,
+
+          
+            tagLine:data.tagLine,
             locationName:data.locationName,
             price:parseInt(data.price),
             description:data.description,
