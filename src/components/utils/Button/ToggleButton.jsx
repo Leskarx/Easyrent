@@ -1,15 +1,38 @@
+"use client";
 import React, { useState } from 'react'
-
+import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 export default function ToggleButton({listingId,isAvailable}) {
+  const [loading, setLoading] = useState(false)
   const [isChecked, setIsChecked] = useState(isAvailable)
-  console.log("toggleeeeeeeeeee");
+  async function change(value){
+    setLoading(true)
+    try {
+      const response = await axios.post('/api/changeavailable',{listingId,value})
+     toast.success("Updated successfully")
+      setLoading(false)
+      
+      setIsChecked(!isChecked)
+    } catch (error) {
+      
+      toast.error("An error occurred")
+    }
+
+    console.log("Value is ",!value);
+
+  }
+
 
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked)
+    change(isChecked)
   }
 
   return (
     <>
+    {
+      loading && <LoadingScreen/>
+    }
       <label className='flex cursor-pointer select-none items-center'>
         <div className='relative'>
           <input

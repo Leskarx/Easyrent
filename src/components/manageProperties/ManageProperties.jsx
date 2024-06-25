@@ -8,12 +8,14 @@ import Card3 from '../utils/card/Card3';
 import { useRouter } from 'next/navigation';
 import { TiArrowLeftThick } from "react-icons/ti";
 import LoadingScreen from '../loadingScreen/LoadingScreen';
-import CancelLargeSection from '../Booking/CancelLargeSection';
+import UpdateCard from '../utils/card/updateCard';
 
-export default function ManageProperties({booking,user}) {
+
+export default function ManageProperties({booking,user,request}) {
     const router=useRouter()
+    console.log("request data........>",request);
 
-  const [toggle,setToggle]=useState(false)
+  const [toggle,setToggle]=useState(true)
   const [loadingScreen,setLoadingScreen]=useState(false)
   useEffect(()=>{
     router.refresh()
@@ -58,29 +60,52 @@ export default function ManageProperties({booking,user}) {
     Add delete or edit your properties
 
 </p>
-<main className=' w-full h-max py-6 flex gap-4 items-center justify-center text-sm md:text-base font-semibold  '>
-    <div className=' cursor-pointer  shadow-md shadow-black/45 rounded-lg w-[50%] md:w-[40%] border-t-2 text-center py-4'>
+<main className={` w-full h-max py-6 flex gap-4 items-center justify-center text-sm md:text-base font-semibold  `}>
+    <div onClick={()=>{
+        setToggle(true)
+    }} className={` ${toggle?"bg-red-500 text-white":""} cursor-pointer  shadow-md shadow-black/45 rounded-lg w-[50%] md:w-[40%] border-t-2 text-center py-4`}>
         Show Properties
     </div>
-    <div className=' cursor-pointer shadow-md h-full shadow-black/45 border-t-2 rounded-lg w-[50%] md:w-[40%] text-center py-4'>
+    <div onClick={()=>{
+      setToggle(false)
+    }} className={` ${toggle?"":"bg-red-500 text-white"} cursor-pointer  shadow-md shadow-black/45 rounded-lg w-[50%] md:w-[40%] border-t-2 text-center py-4`}>
         Show Request
     </div>
 </main>
 
 </section>
 
-<div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8  w-full '>
+
 
 {
-booking?.map((items)=>{
-  return(
-    <Card3 key={items.id} isAvilable={items.available}   id={items.id} price={items.price} rating={items.rating} location={items.location} title={items.locationName} src={items.mainImageSrc}   />
-  )
-})
+  toggle?
+  <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8  w-full '>{
+    
+    booking?.map((items)=>{
+      return(
+        <Card3 key={items.id} isAvilable={items.available}   id={items.id} price={items.price} rating={items.rating} location={items.location} title={items.locationName} src={items.mainImageSrc}   />
+      )
+    })
+    }
+  </div>
+ 
+  :
+  <div className=' grid lg:grid-cols-3 gap-8 grid-cols-1 '>
+    {
+      request?.map((items)=>{
+        return(
+         <UpdateCard/>
+        )
+      })
+    }
+  </div>
+
+
+
 
   }
 
-</div>
+
 
 
 

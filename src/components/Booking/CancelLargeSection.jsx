@@ -6,7 +6,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
-export default function CancelLargeSection({setToggle,id,route="/api/deleteBooking",toastMessage="Booking cancelled successfully",text='Do you want to cancel your booking?',
+export default function CancelLargeSection({setToggle,id,route,toastMessage="Booking cancelled successfully",text='Do you want to cancel your booking?',
 smallText='your request will be updated by the owner'}) {
     const router=useRouter()
     const [loading,setLoading]=useState(false)

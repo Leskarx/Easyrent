@@ -82,7 +82,7 @@ export default function Card2({title,src,price,location,rating,id,date,status,re
    }
    {
     toggle && (
-       <CancelLargeSection setToggle={setToggle} reservationId={reservationId}/>
+       <CancelLargeSection setToggle={setToggle} route='/api/deletebooking' id={reservationId}/>
     
     )
    }
