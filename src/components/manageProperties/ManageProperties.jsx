@@ -93,8 +93,16 @@ export default function ManageProperties({booking,user,request}) {
   <div className=' grid lg:grid-cols-3 gap-8 grid-cols-1 '>
     {
       request?.map((items)=>{
+
         return(
-         <UpdateCard/>
+         items?.reservations?.
+         map((mainItems)=>{
+          return(
+           <UpdateCard key={mainItems.id} id={mainItems.id} status={mainItems.status}  name={mainItems.bookedName} propertyName={items.name} location={items.location} phone={mainItems.phoneNumber} date={mainItems.startDate}  />
+          )
+         
+
+         })
         )
       })
     }
@@ -104,8 +112,8 @@ export default function ManageProperties({booking,user,request}) {
 
 
   }
-
-
+{/* 
+ */}
 
 
 
