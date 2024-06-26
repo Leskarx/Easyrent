@@ -7,7 +7,7 @@ import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
 import Button from '../Button/Button';
 import CancelLargeSection from '@/components/Booking/CancelLargeSection';
 
-export default function Card2({title, src, price, location, rating, id, status, reservationId}) {
+export default function Card2({title, src, price, location,date, rating, id, status, reservationId}) {
   const [isLoading, setIsLoading] = useState(false)
   const [toggle, setToggle] = useState(false)
   
@@ -20,7 +20,7 @@ export default function Card2({title, src, price, location, rating, id, status, 
   status = statusMapping[status] || status;
 
   // Deserialize the date
-  // const day = new Date(date).toDateString();
+  const day = new Date(date).toDateString();
   
   const router = useRouter();
 
@@ -43,7 +43,7 @@ export default function Card2({title, src, price, location, rating, id, status, 
           </div>
           <div className="flex flex-col p-2 relative w-full">
             <p className='flex items-center font-semibold text-lg'>{location} (<span className='text-sm text-center'>{title}</span>)</p>
-            <p className='font-semibold flex justify-between text-slate-800 text-sm lg:text-base'>Booked on: <span>day</span></p>
+            <p className='font-semibold flex justify-between text-slate-800 text-sm lg:text-base'>Booked on: <span>{day}</span></p>
             <p><span className='text-base font-medium'>₹ {price}</span> <span className='font-light text-sm'>monthly</span></p>
             <main className='w-full py-2 flex items-center justify-between gap-2'>
               <div onClick={() => setToggle(!toggle)} className='cursor-pointer'>

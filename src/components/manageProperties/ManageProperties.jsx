@@ -15,7 +15,7 @@ export default function ManageProperties({booking,user,request}) {
     const router=useRouter()
     console.log("request data........>",request);
 
-  const [toggle,setToggle]=useState(true)
+  const [toggle,setToggle]=useState(false)
   const [loadingScreen,setLoadingScreen]=useState(false)
   useEffect(()=>{
     router.refresh()
