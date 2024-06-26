@@ -36,7 +36,7 @@ export default function MyBooking({ booking, user }) {
             {booking.map((items) => (
               <Card2
                 key={items.id}
-                date={new Date(items.startDate).toISOString()} // Pass date as a string
+                // date={new Date(items.startDate).toISOString()} // Pass date as a string
                 status={items.status}
                 id={items.id}
                 price={items.price}
