@@ -6,7 +6,7 @@ import { PulseLoader
 export default function Button({isLoading,handleSubmit,buttonTitle,color="bg-red"}) {
   return (
     <button disabled={isLoading} className={
-        ` ${isLoading?`${color}-400`:`${color}-500`} flex items-center justify-center rounded-lg w-full p-4  text-white text-center `
+        ` ${isLoading?`bg-red-400`:`bg-red-500`} flex items-center justify-center rounded-lg w-full p-4  text-white text-center `
        }  onClick={handleSubmit}>
    
   <div>
