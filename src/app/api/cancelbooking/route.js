@@ -2,19 +2,18 @@ import { NextResponse } from "next/server";
 import prisma from "../../../../prisma/prismaClient";
 export async function POST(request){
     const {id}=await request.json()
-    console.log("ID in route",id)
     if(
         !id
     ){
         return NextResponse.error(new Error("Invalid reservationId"))
     }  
     try {
-        const deletedReservation=await prisma.reservation.delete({
+        const deletedProperty=await prisma.reservation.delete({
             where:{
                 id:id
             }
         }) 
-        if(!deletedReservation){
+        if(!deletedProperty){
             return NextResponse.error(new Error("Invalid reservationId"))
         }
         return NextResponse.json({
