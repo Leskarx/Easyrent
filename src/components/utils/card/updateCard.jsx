@@ -3,7 +3,7 @@ import React from 'react'
 import Button from '../Button/Button'
 import CancelLargeSection from '@/components/Booking/CancelLargeSection';
 import { useState } from 'react';
-
+import GreenButton from '../Button/GreenButton';
 export default function UpdateCard({id,status,name="N/A",propertyName,location,phone="N/A",date}) {
   const [toggleRejected,setToggleRejected]=useState(false)
   const [toggleConfirm,setToggleConfirm]=useState(false)
@@ -15,7 +15,7 @@ export default function UpdateCard({id,status,name="N/A",propertyName,location,p
       <div className='w-[80%] flex gap-2'>
       
         <Button buttonTitle="Reject" handleSubmit={handleReject} color="bg-red" />
-        <Button buttonTitle="Accept" handleSubmit={handleConfirm} color="bg-green" />
+        <GreenButton buttonTitle="Accept" handleSubmit={handleConfirm} color="bg-green" />
       </div>
         
   
