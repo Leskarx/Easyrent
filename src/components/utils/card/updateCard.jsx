@@ -41,7 +41,7 @@ export default function UpdateCard({id,status,name="N/A",propertyName,location,p
      <>
       {
         toggleRejected && (
-          <CancelLargeSection setToggle={setToggleRejected} id={id} route="/api/manageproperty/cancel" toastMessage="Booking cancelled successfully" text='Do you want to cancel this booking?' smallText='Action cannot be undo'/>
+          <CancelLargeSection setToggle={setToggleRejected} id={id} route="/api/deletebooking" toastMessage="Booking cancelled successfully" text='Do you want to cancel this booking?' smallText='Action cannot be undo'/>
         )
       }
       {
