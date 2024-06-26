@@ -35,6 +35,7 @@ export default function Listing({user}) {
   electricitySupply:"",
   bathroomType:"",
   genderType:"",
+  pinCode:"",
   tagLine:"",
     price:"",
     description:"",

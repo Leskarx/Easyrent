@@ -33,7 +33,7 @@ export default function UpdateCard({id,status,name="N/A",propertyName,location,p
     setToggleRejected(true)
   }
 
-  const day=date.toDateString()
+  const day = new Date(date).toDateString();
 
   return (
    <>

@@ -21,13 +21,14 @@ export async function POST(request) {
             userId:user.id,
             location:data.location,
 
+
             type:data?.type,
             paymentInterval:data?.paymentInterval,
             waterSupply:data?.waterSupply,
             electricitySupply:data?.electricitySupply,
             bathroomType:data?.bathroomType,
             genderType:data?.genderType,
-
+pinCode:data.pinCode,
           
             tagLine:data.tagLine,
             locationName:data.locationName,
