@@ -14,7 +14,11 @@ await Promise.all(
         let reservations= await prisma.reservation.findMany({
             where:{
                 listingId:items.id
+            },
+            orderBy:{
+                createdAt:"desc"
             }
+           
         })
         if(!reservations || reservations.length===0){
             return null
