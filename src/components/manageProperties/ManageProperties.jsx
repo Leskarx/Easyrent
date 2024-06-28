@@ -15,7 +15,7 @@ export default function ManageProperties({booking,user,request}) {
     const router=useRouter()
     console.log("request data........>",request);
 
-  const [toggle,setToggle]=useState(false)
+  const [toggle,setToggle]=useState(true)
   const [loadingScreen,setLoadingScreen]=useState(false)
   useEffect(()=>{
     router.refresh()
@@ -63,12 +63,12 @@ export default function ManageProperties({booking,user,request}) {
 <main className={` w-full h-max py-6 flex gap-4 items-center justify-center text-sm md:text-base font-semibold  `}>
     <div onClick={()=>{
         setToggle(true)
-    }} className={` ${toggle?"bg-red-500 text-white":""} cursor-pointer  shadow-md shadow-black/45 rounded-lg w-[50%] md:w-[40%] border-t-2 text-center py-4`}>
+    }} className={` ${toggle?"bg-red-500 text-white":""} cursor-pointer  shadow-md shadow-black/45 rounded-lg w-[50%] md:w-[30%] border-t-2 text-center py-4`}>
         Show Properties
     </div>
     <div onClick={()=>{
       setToggle(false)
-    }} className={` ${toggle?"":"bg-red-500 text-white"} cursor-pointer  shadow-md shadow-black/45 rounded-lg w-[50%] md:w-[40%] border-t-2 text-center py-4`}>
+    }} className={` ${toggle?"":"bg-red-500 text-white"} cursor-pointer  shadow-md shadow-black/45 rounded-lg w-[50%] md:w-[30%] border-t-2 text-center py-4`}>
         Show Request
     </div>
 </main>

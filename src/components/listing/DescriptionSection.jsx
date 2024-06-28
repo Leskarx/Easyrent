@@ -7,7 +7,7 @@ export default function DescriptionSection({register,objectId}) {
         <label htmlFor="des" className=' font-semibold text-sm'>
             ADD DESCRIPTION
         </label>
-        <textarea {...register(objectId, { required: true })} id="des" className=' outline-none border-slate-300 border-2 
+        <textarea {...register(objectId, { required: true })} id="des" className=' outline-none bg-[#F9F9F9] border-2 
         w-full h-full p-2
         '/>
 

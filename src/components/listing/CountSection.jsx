@@ -23,7 +23,7 @@ export default function CountSection({id,setFormValue,label}) {
 
   return (
     <div className='   p-2 flex flex-col items-center font-semibold text-sm  '>
-        <label htmlFor="input">
+        <label className='font-semibold text-sm tracking-wide' htmlFor="input">
             {label}
         </label>
 

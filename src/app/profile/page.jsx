@@ -1,9 +1,13 @@
+import ProfilePage from '@/components/profilePage/ProfilePage'
 import React from 'react'
+import getUser from '@/actions/nextAuthActions/getUser'
 
-export default function page() {
+export default async function page() {
+  const user=await getUser()
   return (
-    <div className=' absolute top-1/2 text-white'>
-      profile
-    </div>
+    <>
+    
+    <ProfilePage user={user}/>
+    </>
   )
 }
