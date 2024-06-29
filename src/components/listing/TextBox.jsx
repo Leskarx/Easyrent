@@ -17,7 +17,7 @@ export function ProfileTextbox({label,objectId,type="text",placeholder,value,set
   return (
     <div className=' p-2 w-full'>
         <label className=' font-semibold text-sm'>{label}</label>
-        <input value={valuew} onChange={(event)=>{
+        <input value={valuew||""} onChange={(event)=>{
           setValuew(event.target.value)
           setvalue(objectId,event.target.value)
         
