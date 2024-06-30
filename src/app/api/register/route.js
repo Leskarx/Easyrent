@@ -13,7 +13,7 @@ export async function POST(request) {
         const user = await prisma.user.create({
             data: {
                 email,
-                phoneNumber: parseInt(number),
+                phoneNumber: number,
                 hasedPassword: hashPassword,
                 name: username
             }

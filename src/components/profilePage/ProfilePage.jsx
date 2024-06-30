@@ -12,10 +12,20 @@ import { useForm } from 'react-hook-form';
 import { CldUploadWidget } from 'next-cloudinary';
 import { SelectTag } from '../listing/LeftSection';
 import Button from '../utils/Button/Button';
+import toast from 'react-hot-toast';
+import { parse } from 'date-fns';
 
 
 export default function ProfilePage({user}) {
     // hooks and variables
+    let phoneNumberinInt
+    let ageInt
+    if(user?.phoneNumber!=null){
+      phoneNumberinInt=parseInt(user?.phoneNumber)
+    }
+    if(user?.age!=null){
+      ageInt=parseInt(user?.age)
+    }
  const genderOption=[{
       value:"others"
     },
@@ -123,17 +133,45 @@ const [src,setSrc]=useState(user?.image || "/placeholder.png")
 
 
     // other functionA
-    const genderOptions=[{
-
-    }]
+  
     function handleUpload(results){
       setSrc(results?.info?.secure_url)
       setValue("image",results?.info?.secure_url)
       // console.log(" main image upload log->>>.",results?.info?.secure_url);
   }
 
-    function onSubmit(data){{
-        console.log("yupppppppppppppppppie",data);
+    async function onSubmit(data){{try {
+      
+        if(Object.keys(data).length==0){
+          return
+         
+        }
+        
+        data={...data,id:user?.id}
+          setLoadingScreen(true)
+          const response=await fetch('/api/updateProfile',{
+              method:'POST',
+              headers:{
+                  'Content-Type':'application/json'
+              },
+              body:JSON.stringify(data)
+          })
+        
+          
+          if(response.ok){
+            setLoadingScreen(false)
+            toast.success('Profile Updated Successfully')
+              
+              router.refresh()
+            }
+    } catch (error) {
+      setLoadingScreen(false)
+        toast.error('Something went wrong')
+
+      
+    }
+
+        
     }}
     
 
@@ -167,7 +205,7 @@ const [src,setSrc]=useState(user?.image || "/placeholder.png")
   <div className=' w-full md:w-1/2'>
     <ProfileTextbox label='Full Name' placeholder={"Enter Your Full Name"} useState={useState} value={user?.name} objectId={"name"} setvalue={setValue}/>
     <ProfileTextbox label='Email' placeholder={"Enter Your Email ID"} useState={useState} value={user?.email} objectId={"email"} setvalue={setValue}/>
-    <ProfileTextbox label='Phone No' placeholder={"Enter Your Phone No"} useState={useState} value={user?.phone} objectId={"phone"} setvalue={setValue}/>
+    <ProfileTextbox type='number' label='Phone No' placeholder={"Enter Your Phone No"} useState={useState} value={phoneNumberinInt} objectId={"phoneNumber"} setvalue={setValue}/>
    
    
     
@@ -178,8 +216,8 @@ const [src,setSrc]=useState(user?.image || "/placeholder.png")
   {/* right div */}
  <div className=' w-full md:w-1/2'>
   <ProfileTextbox label='Address' placeholder={"Enter Your Address"} useState={useState} value={user?.address} objectId={"address"} setvalue={setValue}/>
- <ProfileTextbox label='Age' placeholder={"Enter Your Age"} useState={useState} value={user?.age} objectId={"age"} setvalue={setValue}/>
-  <SelectTag option={genderOption} setValue={setValue} id={"gender"} label={"Gender"}/>
+ <ProfileTextbox type='number' label='Age' placeholder={"Enter Your Age"} useState={useState} value={ageInt} objectId={"age"} setvalue={setValue}/>
+  <SelectTag selectedValue={user?.gender} option={genderOption} setValue={setValue} id={"gender"} label={"Gender"}/>
   
 
  </div>

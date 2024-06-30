@@ -93,16 +93,16 @@ const electricitySupplyOption=[{
 }
 
 
-export function SelectTag({option,id,setValue,label}){
+export function SelectTag({option,id,setValue,label,selectedValue}){
   return (
    <div className=' w-full p-2 flex flex-col gap-[8px] '>
     <label  className=' font-semibold text-sm  tracking-wide '>{label}</label>
-     <select id={label}  onChange={(event)=>{
+     <select defaultValue={selectedValue} id={label}  onChange={(event)=>{
       setValue(id,event.target.value)
-    }} className=' outline-none px-4 text-gray-800 text-sm w-full h-[43.2px] border bg-[#F9F9F9] pl-4  rounded-md'>
+    }} className=' outline-none px-2 text-gray-800 text-sm w-full h-[43.2px] border bg-[#F9F9F9] pl-2  rounded-md'>
       {
         option.map((items)=>{
-          return <option className=' p-2 text-black  ' key={items.value}  value={items.value}>{items.value}</option>
+          return <option  className=' p-2 text-black  ' key={items.value}  value={items.value}>{items.value}</option>
         })
       }
 
