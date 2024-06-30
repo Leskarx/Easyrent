@@ -20,9 +20,10 @@ export async function POST(request) {
         data:{
             userId:user.id,
             location:data.location,
+            state:data.state,
 
 
-            type:data?.type,
+            type:data?.type.toLowerCase(),
             paymentInterval:data?.paymentInterval,
             waterSupply:data?.waterSupply,
             electricitySupply:data?.electricitySupply,

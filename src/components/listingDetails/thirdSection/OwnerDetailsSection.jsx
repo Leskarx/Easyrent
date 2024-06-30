@@ -6,9 +6,10 @@ export default function OwnerDetailsSection({ownerData}) {
     <main className=' h-max w-full font-light '>
       <Text name="Name" value={ownerData?.name}/>
         <Text name="Gender" value={ownerData?.gender||"N/A"}/>
-        <Text name="Phone" value={ownerData?.phone||"N/A"}/>
+        <Text name="Age" value={ownerData?.age||"N/A"}/>
+        <Text name="Phone" value={ownerData?.phoneNumber||"N/A"}/>
         <Text name="Email" value={ownerData?.email||"N/A"}/>
-        <Text name="Ethnicity" value={ownerData?.Ethnicity||"N/A"}/>
+        
     </main>
   )
 }

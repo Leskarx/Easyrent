@@ -47,7 +47,7 @@ export default function Card({title,src,price,location,rating,id,type="Type"}) {
     
   </div>
   <div className=" flex flex-col relative p-2  w-full ">
-    <p className=' font-semibold text-lg '>{location} (<span className=' text-sm text-center'>{title}</span>)</p>
+    <p className=' flex items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] overflow-x-scroll text-nowrap font-semibold text-lg '>{location} (<span className=' text-sm text-center'>{title}</span>)</p>
 
     <p className=' font-semibold text-red-500 text-sm tracking-wider '>{type||"TYPE"} |  </p>
     <p><span className=' text-base font-medium  '>₹ {price}</span> <span className=' font-light text-sm '>monthly</span> </p>

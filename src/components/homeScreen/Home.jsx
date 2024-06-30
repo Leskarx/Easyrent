@@ -1,8 +1,6 @@
 "use client";
 import React from 'react'
 import SearchBar from './SearchBar'
-
-import Card from '../utils/card/Card'
 import DiscoverPrime from './DiscoverPrime'
 import { useEffect } from 'react'
 import Navbar from '../utils/navbar/Navbar'

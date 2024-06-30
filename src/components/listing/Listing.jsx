@@ -36,6 +36,7 @@ export default function Listing({user}) {
   bathroomType:"",
   genderType:"",
   pinCode:"",
+  state:"",
   tagLine:"",
     price:"",
     description:"",

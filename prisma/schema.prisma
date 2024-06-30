@@ -73,6 +73,7 @@ imageSrc2 String?
 imageSrc3 String?
 imageSrc4 String?
 pinCode String?
+state String?
 createdAt DateTime @default(now())
   roomCount Int
   bathroomCount Int

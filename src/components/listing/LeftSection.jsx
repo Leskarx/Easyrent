@@ -35,7 +35,7 @@ const propertyOptions=[{
   value:"Rent"
 },
 {
-value:"PG"
+value:"Pg"
 },
 {
 value:"Other"

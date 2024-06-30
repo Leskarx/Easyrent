@@ -42,7 +42,7 @@ export default function Card2({title, src, price, location,date, rating, id, sta
             />
           </div>
           <div className="flex flex-col p-2 relative w-full">
-            <p className='flex items-center font-semibold text-lg'>{location} (<span className='text-sm text-center'>{title}</span>)</p>
+            <p className='flex items-center overflow-x-scroll text-nowrap [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] font-semibold text-lg'>{location} (<span className='text-sm text-center'>{title}</span>)</p>
             <p className='font-semibold flex justify-between text-slate-800 text-sm lg:text-base'>Booked on: <span>{day}</span></p>
             <p><span className='text-base font-medium'>₹ {price}</span> <span className='font-light text-sm'>monthly</span></p>
             <main className='w-full py-2 flex items-center justify-between gap-2'>

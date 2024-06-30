@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react';
 import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
-import Button from '../Button/Button';
 import { MdDelete } from "react-icons/md";
 import CancelLargeSection from '@/components/Booking/CancelLargeSection';
 import { MdModeEdit } from "react-icons/md";
@@ -61,8 +60,8 @@ export default function Card2({title,src,price,location,isAvilable,id}) {
      
     
   </div>
-  <div className=" flex flex-col relative p-2  w-full ">
-  <p className=' font-semibold text-lg'>{location} (<span className=' text-sm'>{title}</span>)</p>
+  <div className=" flex flex-col relative p-2  w-full  ">
+  <p className=' flex items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] font-semibold text-lg overflow-x-scroll text-nowrap '>{location} (<span className=' text-sm'>{title}</span>)</p>
    
     <p><span className=' text-base font-medium  '>₹ {price}</span> <span className=' font-light text-sm '>monthly</span> </p>
     
