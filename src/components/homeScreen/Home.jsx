@@ -5,8 +5,8 @@ import DiscoverPrime from './DiscoverPrime'
 import { useEffect } from 'react'
 import Navbar from '../utils/navbar/Navbar'
 import MobileScreenNavbar from '../utils/navbar/MobileScreenNavbar'
-import MobileScreenNavWithSearch from '../utils/navbar/MobileScreenNavWithSearch'
 import ExploreRooms from './ExploreRooms';
+import HomePageCard from '../utils/card/HomePageCard'; 
 
 export default  function HomeScreen({user,listing}) {
   useEffect(()=>{
@@ -45,6 +45,26 @@ export default  function HomeScreen({user,listing}) {
 </div>
 
 <section className=' mt-12'><DiscoverPrime/></section>
+<section className=' mt-12 w-full flex flex-col gap-2'>
+<h4 className=' lg:font-bold font-semibold text-xl lg:text-2xl text-slate-800'>
+        Discover your next Home
+      </h4>
+      <p className=' font-light text-sm'>
+        Explore the best PG and rent houses in your city
+</p>
+<div className=' py-2 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6  gap-3 w-full '>
+
+{
+listing?.map((items)=>{
+  return(
+    <HomePageCard key={items.id} type={items.type} id={items.id} price={items.price} rating={items.rating} location={items.location} title={items.locationName} src={items.mainImageSrc}  />
+  )
+})
+
+  }
+
+</div>
+</section>
 
 
 

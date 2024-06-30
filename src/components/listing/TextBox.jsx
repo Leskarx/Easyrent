@@ -12,12 +12,12 @@ export default function TextBox({label,register,objectId,type="text",placeholder
 }
 
 
-export function ProfileTextbox({label,objectId,type="text",placeholder,value,setvalue,useState}) {
+export function ProfileTextbox({label,objectId,type="text",placeholder,value,setvalue,useState,disable=false}) {
   const [valuew,setValuew]=useState(value)
   return (
     <div className=' p-2 w-full'>
         <label className=' font-semibold text-sm'>{label}</label>
-        <input value={valuew||""} onChange={(event)=>{
+        <input disabled={disable} value={valuew||""} onChange={(event)=>{
           setValuew(event.target.value)
           setvalue(objectId,event.target.value)
         

@@ -1,6 +1,8 @@
 import prisma from "../../../prisma/prismaClient";
 async function getListing(){
-    const listing= await prisma.listing.findMany();
+    const listing= await prisma.listing.findMany({
+        take:6,
+    });
     // console.log("listing data",listing);
     return listing
 

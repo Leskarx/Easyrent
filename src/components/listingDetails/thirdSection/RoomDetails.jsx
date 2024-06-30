@@ -14,7 +14,7 @@ export default function RoomDetails({listingData}) {
  </div>
  {/* details section */}
  <section className=' flex  mt-4 flex-col gap-1 font-light w-full h-max'>
-  <Text name="Type" value={listingData?.type.toUpperCase()}/>
+  <Text name="Type" value={listingData?.type?.toUpperCase()}/>
   <Text name="Payment Interval" value={listingData?.paymentInterval}/>
   <Text name="Gender Type" value={listingData?.genderType}/>
   <Text name="Water Supply" value={listingData?.waterSupply}/>

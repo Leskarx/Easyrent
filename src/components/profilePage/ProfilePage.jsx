@@ -206,7 +206,7 @@ const [src,setSrc]=useState(user?.image || "/placeholder.png")
   {/* left div */}
   <div className=' w-full md:w-1/2'>
     <ProfileTextbox label='Full Name' placeholder={"Enter Your Full Name"} useState={useState} value={user?.name} objectId={"name"} setvalue={setValue}/>
-    <ProfileTextbox label='Email' placeholder={"Enter Your Email ID"} useState={useState} value={user?.email} objectId={"email"} setvalue={setValue}/>
+    <ProfileTextbox disable label='Email' placeholder={"Enter Your Email ID"} useState={useState} value={user?.email} objectId={"email"} setvalue={setValue}/>
     <ProfileTextbox type='number' label='Phone No' placeholder={"Enter Your Phone No"} useState={useState} value={phoneNumberinInt} objectId={"phoneNumber"} setvalue={setValue}/>
    
    
