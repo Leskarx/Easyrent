@@ -1,12 +1,9 @@
 "use client"
 import React from 'react'
 import SearchBar from '@/components/homeScreen/SearchBar'
-
 import Card from '@/components/utils/card/Card'
-
 import Navbar from '@/components/utils/navbar/Navbar'
 import MobileScreenNavbar from '@/components/utils/navbar/MobileScreenNavbar'
-import MobileScreenNavWithSearch from '@/components/utils/navbar/MobileScreenNavWithSearch'
 import { useEffect,useState } from 'react'
 import EmptyPage from '../utils/emptyPage/EmptyPage'
 
@@ -21,11 +18,11 @@ export default function SearchPage({user}) {
     
 
 
-  console.log("hehehh",listing.data)
+
   return (
     <div className={` block     w-full  `}>
 
-     <MobileScreenNavbar/>
+     <MobileScreenNavbar user={user}/>
 
      
 <section className=' relative flex flex-col w-full h-max '>

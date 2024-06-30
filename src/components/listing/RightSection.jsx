@@ -9,7 +9,7 @@ export default function RightSection({register,setValue}) {
 
 
   return (
-    <div className=' w-full md:w-[50%] h-full md:border-r border-0 border-slate-400'>
+    <div className=' w-full md:w-[50%] h-full '>
       <main  className='  h-full w-full md:w-[80%] flex flex-col'>
         <TextBox register={register} objectId="location" label="Property  Location" placeholder={"Enter the location"}/>
         <TextBox placeholder={"Your Property Location"} register={register} objectId="locationName" label="Property  Name"/>

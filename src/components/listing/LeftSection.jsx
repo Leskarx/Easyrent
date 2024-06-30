@@ -63,7 +63,7 @@ const electricitySupplyOption=[{
 
 
   return (
-    <div className=' gap-6 flex flex-col justify-center items-center w-full md:w-[50%] h-full border-0 md:border-l border-slate-400 '>
+    <div className=' gap-6 flex flex-col justify-center items-center w-full md:w-[50%] h-full border-0 md:border-l border-slate-600 '>
       <section className=' w-full flex flex-col gap-4 h-max  pl-2 md:pl-12'>
       <SelectTag option={paymentIntervalOption} setValue={setValue} id="paymentInterval" label="Select payment interval"/>
       <SelectTag option={propertyOptions} id="type" label={"Select property type"}  setValue={setValue}/>
