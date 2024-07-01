@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { TiArrowLeftThick } from "react-icons/ti";
 import LoadingScreen from '../loadingScreen/LoadingScreen';
 import UpdateCard from '../utils/card/updateCard';
+import Footer from '../mainBackground/Footer';
 
 
 export default function ManageProperties({booking,user,request}) {
@@ -119,7 +120,7 @@ export default function ManageProperties({booking,user,request}) {
 
 
 
-
+<Footer/>
 
   </section>  
     

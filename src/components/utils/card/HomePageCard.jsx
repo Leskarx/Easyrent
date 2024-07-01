@@ -15,7 +15,7 @@ export default function HomePageCard({title,src,price,location,rating,id,type="T
       router.push(`/listing/${id}`)
     
    }} className='col-span-1 cursor-pointer group  '>
-   <div className="flex flex-col rounded-lg justify-center items-center gap-2 w-full">
+   <div className="flex flex-col rounded-lg justify-center items-center gap-2 w-[180px] md:w-full">
    <div className=' relative rounded-lg w-full h-[300px] bg-slate-200 overflow-hidden   '>
       
 

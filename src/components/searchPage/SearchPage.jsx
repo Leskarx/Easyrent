@@ -6,6 +6,7 @@ import Navbar from '@/components/utils/navbar/Navbar'
 import MobileScreenNavbar from '@/components/utils/navbar/MobileScreenNavbar'
 import { useEffect,useState } from 'react'
 import EmptyPage from '../utils/emptyPage/EmptyPage'
+import Footer from '../mainBackground/Footer'
 
 export default function SearchPage({user}) {
     const [listing,setListing]=useState([])
@@ -35,7 +36,7 @@ export default function SearchPage({user}) {
         <EmptyPage/>
         
         :
-        <section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-full h-max min-h-full px-6  pb-10 pt-16 md:px-12 md:py-20  bg-white' >
+        <section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-full h-max min-h-full px-6  pb-10 pt-16 md:px-12 md:pt-20 md:pb-40   bg-white' >
 
   
   
@@ -45,6 +46,7 @@ export default function SearchPage({user}) {
 <p className=' font-light text-sm'>
 {listing?.data?.length} results found
 </p>
+<Footer/>
 </section>
 
 <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-8  w-full '>

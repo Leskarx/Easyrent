@@ -6,6 +6,7 @@ import MobileScreenNavbar from '@/components/utils/navbar/MobileScreenNavbar';
 import EmptyPage from '../utils/emptyPage/EmptyPage';
 import Card from '@/components/utils/card/Card'
 import { useRouter } from 'next/navigation';
+import Footer from '../mainBackground/Footer';
 
 export default function ExploreCategory({ listing, user,category }) {
     if(category=="pg"){
@@ -31,7 +32,7 @@ export default function ExploreCategory({ listing, user,category }) {
       {(!listing || listing.length === 0) ? (
         <EmptyPage otherPage={true} />
       ) : (
-        <section className='flex absolute top-16 sm:top-24 md:top-24 flex-col gap-4 w-full h-max min-h-screen px-6 pb-16 pt-16 md:px-10 md:py-20 overflow-x-hidden bg-white'>
+        <section className='flex absolute top-16 sm:top-24 md:top-24 flex-col gap-4 w-full h-max min-h-screen px-6 pb-16 pt-16 md:px-10 md:pt-20 md:pb-40  overflow-x-hidden bg-white'>
           <section className='w-full h-max flex flex-col gap-1'>
             <h1 className='font-bold text-lg md:text-2xl text-slate-800'>Explore {category} Houses</h1>
             <p className='font-light text-sm'>{listing.length} result found</p>
@@ -47,6 +48,7 @@ listing?.map((items)=>{
 
   }
           </div>
+          <Footer/>
         </section>
       )}
     </div>

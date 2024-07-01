@@ -2,10 +2,18 @@
 import React from 'react'
 import ExploreRoomsText from './ExploreRoomsText'
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import LoadingScreen from '../loadingScreen/LoadingScreen';
+
 
 export default function ExploreRooms() {
+  const [loadingScreen,setLoadingScreen]=useState(false)
   const router=useRouter()
   return (
+   <>
+   {
+      loadingScreen && <LoadingScreen/>
+   }
     <main className=' w-full py-2 h-max flex-col flex gap-2'>
       <div className=' w-full h-max'>
       <h4 className=' lg:font-bold font-semibold text-xl lg:text-2xl text-slate-800'>
@@ -17,11 +25,13 @@ export default function ExploreRooms() {
 justify-center lg:gap-0 gap-2
 lg:justify-between '>
 <div onClick={()=>{
+  setLoadingScreen(true)
 router.push('/explore/pg')
 }} className=" lg:w-[30%] w-[50%] ">
     <ExploreRoomsText title={"PG rooms"} src={"/pgroom.png"}/>
     </div>
     <div onClick={()=>{
+      setLoadingScreen(true)
 router.push('/explore/rent')
 }}  className=" lg:w-[30%] w-[50%]  ">
     <ExploreRoomsText  title={"Rent houses"} src={"/rentRoom.png"}/>
@@ -33,5 +43,6 @@ router.push('/explore/rent')
 </section>
 
     </main>
+   </>
   )
 }

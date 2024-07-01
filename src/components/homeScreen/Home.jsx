@@ -7,6 +7,7 @@ import Navbar from '../utils/navbar/Navbar'
 import MobileScreenNavbar from '../utils/navbar/MobileScreenNavbar'
 import ExploreRooms from './ExploreRooms';
 import HomePageCard from '../utils/card/HomePageCard'; 
+import Footer from '../mainBackground/Footer';
 
 export default  function HomeScreen({user,listing}) {
   useEffect(()=>{
@@ -25,7 +26,7 @@ export default  function HomeScreen({user,listing}) {
    <SearchBar home={true}/>
    </section>
 
-<section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-full h-max px-6  pb-10 pt-16 md:px-12 md:py-20  bg-white' >
+<section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-full h-max px-6  pb-10 pt-16 md:px-12 md:pt-20 md:pb-40  bg-white' >
   {/* explore rent pg section */}
   <ExploreRooms/>
 
@@ -52,7 +53,8 @@ export default  function HomeScreen({user,listing}) {
       <p className=' font-light text-sm'>
         Explore the best PG and rent houses in your city
 </p>
-<div className=' py-2 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6  gap-3 w-full '>
+<div className=' w-full overflow-x-auto'>
+<div className=' py-2 grid grid-cols-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6  md:gap-3 gap-1 md:w-full w-max  '>
 
 {
 listing?.map((items)=>{
@@ -64,35 +66,18 @@ listing?.map((items)=>{
   }
 
 </div>
+</div>
+
 </section>
 
 
 
 
 
-
+<Footer/>
   </section>  
 
 
     </div>
   )
 }
-
-/*
-
-<section className=' w-full h-max flex flex-col gap-1'>
-<h1 className=' font-bold text-2xl text-slate-800' >Discover your next Home</h1>
-<p className=' font-light text-sm'>
-  Explore the best PG and rent houses in your city
-</p>
-</section>
-
-
-
-{
-listing.map((items)=>{
-  return(
-    <Card key={items.id} id={ items.id} price={items.price} rating={items.rating} location={items.location} title={items.locationName} src={items.mainImageSrc}  />
-  )
-}) }
-*/

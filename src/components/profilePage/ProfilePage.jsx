@@ -14,6 +14,7 @@ import { SelectTag } from '../listing/LeftSection';
 import Button from '../utils/Button/Button';
 import toast from 'react-hot-toast';
 import { set } from 'date-fns';
+import Footer from '../mainBackground/Footer';
 
 
 
@@ -234,7 +235,7 @@ const [src,setSrc]=useState(user?.image || "/placeholder.png")
 
 
 
-
+<Footer/>
   </section>  
     
 
