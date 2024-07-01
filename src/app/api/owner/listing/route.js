@@ -19,8 +19,8 @@ export async function POST(request) {
     const dataFromDB=await prisma.listing.create({
         data:{
             userId:user.id,
-            location:data.location,
-            state:data.state,
+            location:data?.location?.trim(),
+            state:data?.state?.trim(),
 
 
             type:data?.type?.toLowerCase(),
@@ -29,10 +29,10 @@ export async function POST(request) {
             electricitySupply:data?.electricitySupply,
             bathroomType:data?.bathroomType,
             genderType:data?.genderType,
-pinCode:data.pinCode,
+pinCode:data?.pinCode?.trim(),
           
             tagLine:data.tagLine,
-            locationName:data.locationName,
+            locationName:data?.locationName?.trim(),
             price:parseInt(data.price),
             description:data.description,
             mainImageSrc:data.mainImageSrc,
