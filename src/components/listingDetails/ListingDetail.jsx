@@ -9,7 +9,7 @@ import SearchBar from '../homeScreen/SearchBar';
 import MobileScreenNavbar from '@/components/utils/navbar/MobileScreenNavbar'
 import { CiHeart } from "react-icons/ci";
 import { IoShareOutline } from "react-icons/io5";
-import Footer from '../mainBackground/Footer';
+
 
 export default function ListingDetail({listingData,ownerData,currentUser}) {
   const [toggle,setToggle]=useState(false)

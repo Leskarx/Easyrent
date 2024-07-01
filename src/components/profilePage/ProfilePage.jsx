@@ -13,7 +13,6 @@ import { CldUploadWidget } from 'next-cloudinary';
 import { SelectTag } from '../listing/LeftSection';
 import Button from '../utils/Button/Button';
 import toast from 'react-hot-toast';
-import { set } from 'date-fns';
 import Footer from '../mainBackground/Footer';
 
 
@@ -194,7 +193,7 @@ const [src,setSrc]=useState(user?.image || "/placeholder.png")
   
    </section>
 
-        <section className='flex  absolute top-4 sm:top-4 md:top-24 flex-col gap-4 w-full h-max min-h-[87%] px-6  pb-16 pt-1 md:px-10 md:py-6 overflow-x-hidden  bg-white' >
+        <section className='flex  absolute top-4 sm:top-4 md:top-24 flex-col gap-4 w-full h-max min-h-[87%] px-6  pb-24 pt-1 md:px-10 md:py-6 overflow-x-hidden  bg-white' >
 <section className=' w-full md:w-[90%] mx-auto flex flex-col gap-3 '>
   <div onClick={()=>{
     setLoadingScreen(true)

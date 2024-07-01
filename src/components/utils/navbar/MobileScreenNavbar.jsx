@@ -114,11 +114,17 @@ function ShowMenu({user,SetMenuloading,setMenu=()=>{}}){
         
         
         </div>
-       <div className=' w-full h-max flex justify-center py-2 border-b-2'>
+       
+{
+  user ?(
+    // user present
+    <section>
+<div className=' w-full h-max flex justify-center py-2 border-b-2'>
        <NavImage user={user} mobile/>
        </div>
 
-        <MenuText SetMenuloading={SetMenuloading} link='/profile' text="Profile"/>
+      <main className=' flex flex-col gap-6 pt-4'>
+      <MenuText SetMenuloading={SetMenuloading} link='/profile' text="Profile"/>
         <MenuText SetMenuloading={SetMenuloading} link='/myfavourite' text="My favourite"/>
         <MenuText SetMenuloading={SetMenuloading} link='/mybooking' text="My booking"/>
         <MenuText SetMenuloading={SetMenuloading} link='/mybooking' text="Add properties"/>
@@ -129,9 +135,33 @@ signOut()
         }}>
         <MenuText text="Log out"/>
         </div>
+      </main>
 
          
          
+</section>
+  ):(
+    // user not present
+    <section>
+      <div className=' w-full h-max flex justify-center py-2 border-b-2'>
+       <NavImage user={user} mobile/>
+       </div>
+
+ <section className=' flex flex-col gap-6 pt-4'>
+ <MenuText SetMenuloading={SetMenuloading} link='/signup' text="Sign Up"/>
+        <MenuText SetMenuloading={SetMenuloading} link='/login' text="Login"/>
+        <MenuText SetMenuloading={SetMenuloading} link='/aboutus' text="About us"/>
+ </section>
+      
+
+         
+         
+</section>
+  )
+
+}
+
+
         </main>
         
         

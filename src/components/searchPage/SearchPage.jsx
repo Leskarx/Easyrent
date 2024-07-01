@@ -36,7 +36,7 @@ export default function SearchPage({user}) {
         <EmptyPage/>
         
         :
-        <section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-full h-max min-h-full px-6  pb-10 pt-16 md:px-12 md:pt-20 md:pb-40   bg-white' >
+        <section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-full h-max min-h-full px-6  pb-24 pt-16 md:px-12 md:pt-20 md:pb-40   bg-white' >
 
   
   

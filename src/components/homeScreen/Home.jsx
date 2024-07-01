@@ -14,9 +14,8 @@ export default  function HomeScreen({user,listing}) {
     localStorage.clear()
   },[])
 
-  // console.log("hehehh",listing)
   return (
-    <div className={` ${(user!=null)? "block":"hidden md:block" }       w-full  `}>
+    <div className={`        w-full  `}>
 
      <MobileScreenNavbar user={user}/>
 
@@ -26,7 +25,7 @@ export default  function HomeScreen({user,listing}) {
    <SearchBar home={true}/>
    </section>
 
-<section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-full h-max px-6  pb-10 pt-16 md:px-12 md:pt-20 md:pb-40  bg-white' >
+<section className='flex absolute top-16 sm:top-24 md:top-72 flex-col gap-4 w-full h-max px-6  pb-24 pt-16 md:px-12 md:pt-20 md:pb-40  bg-white' >
   {/* explore rent pg section */}
   <ExploreRooms/>
 

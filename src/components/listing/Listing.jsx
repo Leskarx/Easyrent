@@ -105,7 +105,7 @@ function customGetValues(id){
     </section>
 
     {/* main section */}
-    <section className='flex  absolute top-4 sm:top-4 md:top-24 flex-col gap-4 w-full h-max min-h-screen px-6  pb-16 pt-1 md:px-10 md:pt-6 md:pb-40  overflow-x-hidden  bg-white' >
+    <section className='flex  absolute top-4 sm:top-4 md:top-24 flex-col gap-4 w-full h-max min-h-screen px-6  pb-24 pt-1 md:px-10 md:pt-6 md:pb-40  overflow-x-hidden  bg-white' >
  
  
     <div onClick={()=>{
