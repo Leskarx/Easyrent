@@ -76,7 +76,7 @@ export default function Signup() {
         <div className=' w-full h-full flex justify-center items-center  mb-0 '>
       <MainSection 
       isLoading={loading}
-      title="Register" para='Create an account to access all the features of EASYRENT!' handleSubmit={handleSubmit(onSubmit)} buttonTitle="Register" footer={footer} body={body} showGprovider={false} />
+      title="Register" para='Create an account to access all the features of EASERENT!' handleSubmit={handleSubmit(onSubmit)} buttonTitle="Register" footer={footer} body={body} showGprovider={false} />
         </div>
       )
 }

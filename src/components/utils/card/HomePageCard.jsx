@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react';
 import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
+import { IoMdStar } from "react-icons/io";
 export default function HomePageCard({title,src,price,location,rating,id,type="Type"}) {
   const [isloading,setIsloading]=useState(false)
   const router=useRouter()
@@ -40,7 +41,12 @@ export default function HomePageCard({title,src,price,location,rating,id,type="T
   <div className=" flex flex-col relative p-2  w-full ">
     <p className=' flex items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] overflow-x-scroll text-nowrap font-semibold text-lg '>{location}</p>
     <p><span className=' text-base font-medium  '>₹ {price}</span> <span className=' font-light text-sm '>monthly</span> </p>
-    <p className=''>{rating}</p>
+    <p className='  flex items-center'>
+      <span className=' text-sm font-semibold font-sans'>
+      {rating}
+      </span>
+    <span className='text-green-700 font-sans'><IoMdStar size={16}/></span>
+    </p>
     
   </div>
    </div>

@@ -23,7 +23,7 @@ export async function POST(request) {
             state:data.state,
 
 
-            type:data?.type.toLowerCase(),
+            type:data?.type?.toLowerCase(),
             paymentInterval:data?.paymentInterval,
             waterSupply:data?.waterSupply,
             electricitySupply:data?.electricitySupply,
@@ -55,10 +55,12 @@ pinCode:data.pinCode,
 
     
    } catch (error) {
+    
     return NextResponse.json(
         {
             success:false,
             message:"failed",
+            error:error
         },
         
 

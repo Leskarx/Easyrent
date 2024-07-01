@@ -5,6 +5,7 @@ import Heartbutton from '@/components/heartButton/Heartbutton'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react';
 import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
+import { IoMdStar } from "react-icons/io";
 export default function Card({title,src,price,location,rating,id,type="Type"}) {
   const [isloading,setIsloading]=useState(false)
   if(type=="pg"){
@@ -14,7 +15,7 @@ export default function Card({title,src,price,location,rating,id,type="Type"}) {
     type="RENT"
   }
   const router=useRouter()
-  console.log("search page................>",type)
+
   return (
  <>
    <section onClick={()=>{
@@ -49,9 +50,16 @@ export default function Card({title,src,price,location,rating,id,type="Type"}) {
   <div className=" flex flex-col relative p-2  w-full ">
     <p className=' flex items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] overflow-x-scroll text-nowrap font-semibold text-lg '>{location} (<span className=' text-sm text-center'>{title}</span>)</p>
 
-    <p className=' font-semibold text-red-500 text-sm tracking-wider '>{type||"TYPE"} |  </p>
+    <p className=' font-semibold text-red-500 text-sm tracking-wider '>{type||"TYPE"}   </p>
     <p><span className=' text-base font-medium  '>₹ {price}</span> <span className=' font-light text-sm '>monthly</span> </p>
-    <p className='absolute top-1/2 -translate-y-1/2 self-end'>{rating}</p>
+    <div className='absolute top-1/2 -translate-y-1/2 self-end'>
+    <p className='  flex items-center'>
+      <span className=' text-sm font-semibold font-sans'>
+      {rating}
+      </span>
+    <span className='text-green-700 font-sans'><IoMdStar size={16}/></span>
+    </p>
+    </div>
     
   </div>
    </div>
@@ -65,3 +73,4 @@ export default function Card({title,src,price,location,rating,id,type="Type"}) {
  </>
   )
 }
+

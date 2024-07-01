@@ -44,7 +44,7 @@ export default function ManageProperties({booking,user,request}) {
         <EmptyPage otherPage={true}/>
         
         :
-        <section className='flex  absolute top-4 sm:top-4 md:top-24 flex-col gap-4 w-full h-max min-h-screen px-6  pb-16 pt-1 md:px-10 md:py-6 overflow-x-hidden  bg-white' >
+        <section className='flex  absolute top-4 sm:top-4 md:top-24 flex-col gap-4 w-full h-max min-h-screen px-6  pb-16 pt-1 md:px-10 md:pt-20 md:pb-40  overflow-x-hidden  bg-white' >
 
   <div onClick={()=>{
     setLoadingScreen(true)
@@ -91,7 +91,7 @@ export default function ManageProperties({booking,user,request}) {
   </div>
  
   :
-  <div className=' grid lg:grid-cols-3 gap-8 grid-cols-1 '>
+  <div className=' grid lg:grid-cols-3 md:grid-cols-2 gap-8 grid-cols-1 '>
     {
       request?.map((items)=>{
 

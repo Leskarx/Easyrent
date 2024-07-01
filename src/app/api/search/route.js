@@ -2,12 +2,15 @@ import { NextResponse } from "next/server";
 import prisma from "../../../../prisma/prismaClient";
 import next from "next";
 async function searchByLocation(location){
-    let data=await prisma.listing.findMany({
-        where :{
-            location:location
+  const data = await prisma.listing.findMany({
+    where: {
+        location: {
+            equals: location,
+            mode: 'insensitive'
         }
-    })
-    return data;
+    }
+});
+return data;
 
 }
 async function searchByPincode(pinCode){
@@ -33,76 +36,71 @@ export async function POST(request){
         })
     
     }
-    if(location && pinCode){
-        let combineResult = await prisma.listing.aggregateRaw({
-            pipeline:[
-        
-                {
-                    $match: { pinCode: pinCode }
-                  },
-                  // Using $facet to handle conditional logic
-                  {
-                    $facet: {
-                      // First pipeline: Further filter the documents with roomcount 5
+    if (location && pinCode) {
+      let combineResult = await prisma.listing.aggregateRaw({
+          pipeline: [
+              {
+                  $match: { pinCode: pinCode }
+              },
+              // Using $facet to handle conditional logic
+              {
+                  $facet: {
+                      // First pipeline: Further filter the documents with case-insensitive location match
                       filtered: [
-                        { $match: { location: location } }
+                          { $match: { location: { $regex: location, $options: "i" } } }
                       ],
                       // Second pipeline: Keep the documents from the first stage as a backup
                       backup: [
-                        { $match: {} }  // This will include all documents from the previous stage
+                          { $match: {} }  // This will include all documents from the previous stage
                       ]
-                    }
-                  },
-                  // Using $project to check if filtered results are empty and decide which result set to use
-                  {
-                    $project: {
-                      results: {
-                        $cond: {
-                          if: { $eq: [{ $size: "$filtered" }, 0] },
-                          then: "$backup",
-                          else: "$filtered"
-                        }
-                      }
-                    }
-                  },
-                  // Unwind the results array to return documents individually
-                  {
-                    $unwind: "$results"
-                  },
-                  // Replace the root with the documents in results array
-                  {
-                    $replaceRoot: { newRoot: "$results" }
                   }
-        
-        
-            ]
-
+              },
+              // Using $project to check if filtered results are empty and decide which result set to use
+              {
+                  $project: {
+                      results: {
+                          $cond: {
+                              if: { $eq: [{ $size: "$filtered" }, 0] },
+                              then: "$backup",
+                              else: "$filtered"
+                          }
+                      }
+                  }
+              },
+              // Unwind the results array to return documents individually
+              {
+                  $unwind: "$results"
+              },
+              // Replace the root with the documents in results array
+              {
+                  $replaceRoot: { newRoot: "$results" }
+              }
+          ]
+      });
+  
+      if (!combineResult || combineResult.length == 0) {
+          data = await searchByLocation(location);
+          return NextResponse.json({
+              data: data
           });
-          if(!combineResult || combineResult.length==0){
-            data=await searchByLocation(location)
-           return  NextResponse.json({
-                data:data
-            })
-           
-          }
-          if(combineResult){
-            let properties = combineResult
-            
-            properties.forEach(property => {
+      }
+  
+      if (combineResult) {
+          let properties = combineResult;
+  
+          properties.forEach(property => {
               property.id = property._id.$oid;
               delete property._id; // Optionally delete the original _id field
-              
+  
               property.userId = property.userId.$oid;
-            });
-            
-          
-           
-              return NextResponse.json({
-                  data:properties
-              })
-          }
-
-    }
+          });
+  
+          return NextResponse.json({
+              data: properties
+          });
+      }
+  }
+  
 
     if(location && !pinCode){
         data=await searchByLocation(location)

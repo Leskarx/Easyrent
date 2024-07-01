@@ -86,8 +86,8 @@ const day = new Date(date).toDateString();
 
 function UpdateCardText({keyy,value}) {
   return(
-    <p className='  flex items-center gap-2 overflow-auto'>
-    <span className=" font-semibold ">{keyy} :</span><span className=' tracking-wider text-slate-900 '>
+    <p className='  flex items-center gap-2 text-nowrap '>
+    <span className=" font-semibold ">{keyy} :</span><span className=' tracking-wider text-slate-900 text-nowrap  overflow-auto '>
     {value||"N/A"}
     </span>
   </p>

@@ -31,7 +31,7 @@ export default function LogoSectionNav() {
     }} className=' cursor-pointer relative  h-[80px] w-[200px] '>
     <div className=' inset-0'>
     <Image
-    src={"/logo.png"}
+    src={"/ICON.svg"}
     alt="LOgo"
     fill
     priority
