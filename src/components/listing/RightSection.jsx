@@ -12,7 +12,7 @@ export default function RightSection({register,setValue}) {
     <div className=' w-full md:w-[50%] h-full '>
       <main  className='  h-full w-full md:w-[80%] flex flex-col'>
         <TextBox register={register} objectId="location" label="Property  Location" placeholder={"Enter the location"}/>
-        <TextBox placeholder={"Your Property Location"} register={register} objectId="locationName" label="Property  Name"/>
+        <TextBox placeholder={"Your Property name"} register={register} objectId="locationName" label="Property  Name"/>
         <TextBox placeholder={"Enter Pin Code"} register={register} type='number' objectId="pinCode" label="Pin Code"/>
         <TextBox placeholder={"Enter your state"} register={register} type='text' objectId="state" label="State"/>
         <TextBox placeholder={"Enter Your Property Price"} register={register} type='number' objectId="price" label="Set Price Per Interval"/>

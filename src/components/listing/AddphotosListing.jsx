@@ -43,7 +43,11 @@ export default function AddphotosListing({setValue,id,getValues}) {
   {({ open }) => {
     return (
       <div onClick={()=>{
-        open()
+        if (open) {
+          open();
+        } else {
+          console.error("Upload widget could not be opened.");
+        }
       }} className=' relative cursor-pointer h-12 w-12 bg-slate-200 rounded-lg'>
 
 

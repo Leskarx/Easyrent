@@ -77,7 +77,11 @@ const [src,setSrc]=useState(user?.image || "/placeholder.png")
   {({ open }) => {
     return (
         <section onClick={()=>{
-            open?.()
+          if (open) {
+            open();
+          } else {
+            console.error("Upload widget could not be opened.");
+          }
         }} className=" relative rounded-full w-[100px] aspect-square ">
 
             
@@ -234,7 +238,7 @@ const [src,setSrc]=useState(user?.image || "/placeholder.png")
 
 
 
-<Footer/>
+<Footer mobileHide/>
   </section>  
     
 

@@ -10,7 +10,7 @@ export default async function RootLayout({children}) {
    <>
     <Navbar user={currentUser} authPage={true}/>
    {children}
-   <Footer/>
+   <Footer mobileHide/>
    </>
   )
 }

@@ -9,12 +9,12 @@ import { useRouter } from 'next/navigation';
 import { TiArrowLeftThick } from "react-icons/ti";
 import LoadingScreen from '../loadingScreen/LoadingScreen';
 import UpdateCard from '../utils/card/updateCard';
-import Footer from '../mainBackground/Footer';
+
 
 
 export default function ManageProperties({booking,user,request}) {
     const router=useRouter()
-    console.log("request data........>",request);
+  
 
   const [toggle,setToggle]=useState(true)
   const [loadingScreen,setLoadingScreen]=useState(false)
@@ -37,6 +37,13 @@ export default function ManageProperties({booking,user,request}) {
 <Navbar user={user} homePage={true} />
   
    </section>
+   <div onClick={()=>{
+    setLoadingScreen(true)
+
+    router.back()
+  }} className=' absolute top-8 z-[999]  left-6 block md:hidden'>
+  <TiArrowLeftThick size={20}/>
+  </div>
 
    {
         (!booking || booking?.length==0)? 
@@ -44,15 +51,9 @@ export default function ManageProperties({booking,user,request}) {
         <EmptyPage otherPage={true}/>
         
         :
-        <section className='flex  absolute top-4 sm:top-4 md:top-24 flex-col gap-4 w-full h-max min-h-screen px-6  pb-24 pt-1 md:px-10 md:pt-20 md:pb-40  overflow-x-hidden  bg-white' >
+        <section className='flex  absolute top-16 sm:top-16 md:top-24 flex-col gap-4 w-full h-max min-h-screen px-6  pb-24 pt-1 md:px-10 md:pt-20 md:pb-40  overflow-x-hidden  bg-white' >
 
-  <div onClick={()=>{
-    setLoadingScreen(true)
-
-    router.back()
-  }} className=' block md:hidden'>
-  <TiArrowLeftThick size={20}/>
-  </div>
+ 
   
 {/* text section */}
 <section className=' w-full h-max flex flex-col gap-1'>
@@ -120,7 +121,7 @@ export default function ManageProperties({booking,user,request}) {
 
 
 
-<Footer/>
+
 
   </section>  
     

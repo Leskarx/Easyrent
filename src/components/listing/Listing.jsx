@@ -132,7 +132,7 @@ function customGetValues(id){
  
 
 
-<Footer/>
+<Footer mobileHide/>
 </section>
 
 
