@@ -15,8 +15,10 @@ export async function middleware(request) {
     }else if(!token && (
     
         url.pathname.startsWith("/listing")||
-        url.pathname.startsWith("/addproperties")||
-        url.pathname.startsWith("/mybooking")
+        url.pathname.startsWith("/addproperty")||
+        url.pathname.startsWith("/mybooking")||
+        url.pathname.startsWith("/profile")||
+        url.pathname.startsWith("/manageproperties")
     
     )){
         return NextResponse.redirect(new URL('/login', request.url))
@@ -30,8 +32,9 @@ export const config = {
         "/login",
         "/signup",     
         "/listing/:id*",
-        "/addproperties",
+        "/addproperty",
         "/mybooking",
+        "/manageproperties"
 
     ]
 }

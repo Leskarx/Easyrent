@@ -7,9 +7,13 @@ import Button from '../Button/Button';
 
 
 
-export default function MainSection({title,para,body,buttonTitle,handleSubmit,footer,showGprovider,isLoading}) {
+
+export default function MainSection({title,para,body,buttonTitle,handleSubmit,footer,showGprovider,isLoading,setLoadingScreen}) {
+
   const router=useRouter()
   return (
+   <>
+  
     <div className=' absolute top-1/2 -translate-y-1/2 min-h-screen md:min-h-[30%] md:w-[30%] w-full bg-white rounded-lg shadow-4xl drop-shadow-2xl flex justify-between  '>
 <main className=' p-3 md:pt-2 pt-4  h-max  w-full  rounded-lg shadow-4xl flex flex-col md:justify-between justify-around gap-7    '>
 
@@ -39,7 +43,7 @@ export default function MainSection({title,para,body,buttonTitle,handleSubmit,fo
 
        {
         showGprovider&&(
-          <OtherLogin des="Continue with google"/>
+          <OtherLogin setLoadingScreen={setLoadingScreen} des="Continue with google"/>
         )
        }
       
@@ -54,5 +58,6 @@ export default function MainSection({title,para,body,buttonTitle,handleSubmit,fo
 
      
     </div>
+   </>
   )
 }

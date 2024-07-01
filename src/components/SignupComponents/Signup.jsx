@@ -8,11 +8,14 @@ import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import { signIn} from "next-auth/react"
 import { useRouter } from 'next/navigation'
+import LoadingScreen from '../loadingScreen/LoadingScreen'
+
 
 
 export default function Signup() {
   const router=useRouter()
   const [loading,setLoading]=React.useState(false)
+  const [loadingScreen,setLoadingScreen]=React.useState(false)
   const {
     register,
     handleSubmit,
@@ -55,7 +58,7 @@ export default function Signup() {
     const footer=(
         <>
         
-        <AlreadySection link='/login' des="Already have an account?" buttonTitle="Login" />
+        <AlreadySection setLoadingScreen={setLoadingScreen} link='/login' des="Already have an account?" buttonTitle="Login" />
        
         </>
       )
@@ -73,10 +76,16 @@ export default function Signup() {
       )
     
       return (
+       <>{
+        loadingScreen && (
+          <LoadingScreen/>
+        )
+       }
         <div className=' w-full h-full flex justify-center items-center  mb-0 '>
       <MainSection 
-      isLoading={loading}
-      title="Register" para='Create an account to access all the features of EASERENT!' handleSubmit={handleSubmit(onSubmit)} buttonTitle="Register" footer={footer} body={body} showGprovider={false} />
+      isLoading={loading} showGprovider={true} setLoadingScreen={setLoadingScreen}
+      title="Register" para='Create an account to access all the features of EASERENT!' handleSubmit={handleSubmit(onSubmit)} buttonTitle="Register" footer={footer} body={body}  />
         </div>
+       </>
       )
 }

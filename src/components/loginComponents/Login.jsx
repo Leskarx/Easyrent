@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form"
 import { signIn} from "next-auth/react"
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
+import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
 export default function Login() {
   const router=useRouter()
   const {
@@ -19,6 +20,7 @@ export default function Login() {
     password:""
   })
   const [loading,setLoading]=React.useState(false)
+  const [loadingScreen, setLoadingScreen] = React.useState(false)
 
   async function onSubmit(data){
   try {
@@ -46,7 +48,7 @@ export default function Login() {
   const footer=(
     <>
     
-    <AlreadySection link='/signup' des="Don’t have an account?" buttonTitle="Register" />
+    <AlreadySection setLoadingScreen={setLoadingScreen} link='/signup' des="Don’t have an account?" buttonTitle="Register" />
    
     </>
   )
@@ -63,8 +65,15 @@ export default function Login() {
   )
 
   return (
+   <>
+   {
+  loadingScreen&&(
+    <LoadingScreen/>
+  )
+}
     <div className=' w-full h-full flex justify-center items-center '>
-  <MainSection title="Login" para='Login now to get your next Perfect Home. ' buttonTitle="Login" footer={footer} handleSubmit={handleSubmit(onSubmit)} body={body} showGprovider={true} isLoading={loading} />
+  <MainSection title="Login" para='Login now to get your next Perfect Home. ' buttonTitle="Login" footer={footer} handleSubmit={handleSubmit(onSubmit)} body={body} showGprovider={true} isLoading={loading} setLoadingScreen={setLoadingScreen} />
     </div>
+   </>
   )
 }
