@@ -7,11 +7,22 @@ import Navbar from '@/components/utils/navbar/Navbar'
 import {useState} from 'react'
 import SearchBar from '../homeScreen/SearchBar';
 import MobileScreenNavbar from '@/components/utils/navbar/MobileScreenNavbar'
-import { CiHeart } from "react-icons/ci";
+import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 import { IoShareOutline } from "react-icons/io5";
 
 
+  
+
 export default function ListingDetail({listingData,ownerData,currentUser}) {
+
+  console.log("url..........>",window.location.href); 
+
+
+  let isFav=false
+  currentUser.favroiteIds.find((id)=>(id==listingData.id)?isFav=true:isFav=false)
+
+  const [isSaved,setIsSaved]=useState(isFav)
   const [toggle,setToggle]=useState(false)
   // console.log("listing detain page",listingData);
   return (
@@ -30,8 +41,22 @@ export default function ListingDetail({listingData,ownerData,currentUser}) {
           <div className='flex justify-between items-center w-full '>
             <h1 className=' text-2xl lg:text-4xl font-semibold'>{listingData?.locationName}</h1>
             <div className=' flex justify-center items-center gap-8'>
-              <p className='cursor-pointer underline flex items-center justify-center gap-1 text-sm'>  <IoShareOutline size={17} /> Share</p>
-              <p className='cursor-pointer flex items-center justify-center gap-1 underline text-sm'> <CiHeart size={17}/> Save</p>
+              <p onClick={()=>{
+
+              }} className='cursor-pointer underline flex items-center justify-center gap-1 text-sm'>  <IoShareOutline size={17} /> Share</p>
+              
+              <p onClick={()=>{setIsSaved(!isSaved)}} className='cursor-pointer flex items-center justify-center gap-1 underline text-sm'> 
+              
+              {
+                isSaved?
+                <AiFillHeart size={17} color='red' />
+                :
+                <AiOutlineHeart size={17} />
+              }
+              
+               Save</p>
+
+
             </div>
             
           </div>
