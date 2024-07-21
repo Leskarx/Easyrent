@@ -4,29 +4,56 @@ import FirstSection from './FirstSection';
 import SecondSection from './SecondSection';
 import ThirdSection from './thirdSection/ThirdSection';
 import Navbar from '@/components/utils/navbar/Navbar'
+import toast from 'react-hot-toast';
 import {useState} from 'react'
 import SearchBar from '../homeScreen/SearchBar';
+import axios, { AxiosHeaders } from 'axios';
 import MobileScreenNavbar from '@/components/utils/navbar/MobileScreenNavbar'
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { IoShareOutline } from "react-icons/io5";
+import LoadingScreen from '../loadingScreen/LoadingScreen';
+
 
 
   
 
 export default function ListingDetail({listingData,ownerData,currentUser}) {
 
-  console.log("url..........>",window.location.href); 
+  // console.log("url..........>",window.location.href); 
 
 
   let isFav=false
   currentUser.favroiteIds.find((id)=>(id==listingData.id)?isFav=true:isFav=false)
 
   const [isSaved,setIsSaved]=useState(isFav)
+  const [loading,setIsloading]=useState(false)
+
   const [toggle,setToggle]=useState(false)
+  async function toggleSaved(){
+    setIsloading(true)
+    const res=await axios.post('/api/toggleSave',{listingId:listingData.id,
+      userId:currentUser.id
+    })
+    console.log("res............>",res.data);
+    if(res.data.success && !isSaved){
+
+      toast.success('Saved')
+    }
+    if(res.data.success && isSaved){
+      
+      toast.success('Removed from saved')
+    }
+    setIsloading(false)
+    setIsSaved(!isSaved)
+  }
   // console.log("listing detain page",listingData);
   return (
     <>
+     {
+      loading && <LoadingScreen/>
+
+    }
      <MobileScreenNavbar user={currentUser}/>
      <section className=' relative flex flex-col w-full h-max '>
 <Navbar user={currentUser} homePage={true} />
@@ -42,10 +69,16 @@ export default function ListingDetail({listingData,ownerData,currentUser}) {
             <h1 className=' text-2xl lg:text-4xl font-semibold'>{listingData?.locationName}</h1>
             <div className=' flex justify-center items-center gap-8'>
               <p onClick={()=>{
+               if(window!==undefined){
+                navigator.clipboard.writeText(window.location.href)
+                toast.success('Link copied')
+               }
 
-              }} className='cursor-pointer underline flex items-center justify-center gap-1 text-sm'>  <IoShareOutline size={17} /> Share</p>
+              }} className='cursor-pointer underline flex items-center justify-center gap-1 text-sm'>  <IoShareOutline size={17} /> 
+              Share
+              </p>
               
-              <p onClick={()=>{setIsSaved(!isSaved)}} className='cursor-pointer flex items-center justify-center gap-1 underline text-sm'> 
+              <p onClick={toggleSaved} className='cursor-pointer flex items-center justify-center gap-1 underline text-sm'> 
               
               {
                 isSaved?
