@@ -57,7 +57,7 @@ export default function Login() {
     <>
     <div>
     <InputBox register={register} errors={errors} objectId="email" placeholder="Email" type="text" name="email" />
-    <InputBox register={register} errors={errors} objectId="password" placeholder="Password" type="password" name="password" />
+    <InputBox register={register} errors={errors} objectId="password" placeholder="Password" type="password" name="password" passwordField />
     {/* <InputBox title="Password" type="password" /> */}
     </div>
     

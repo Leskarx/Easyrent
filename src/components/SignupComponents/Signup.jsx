@@ -69,7 +69,7 @@ export default function Signup() {
         <InputBox register={register} errors={errors} objectId="email" placeholder="Email" type="text" name="email" />
         <InputBox register={register} errors={errors} objectId="username" placeholder="Name" type="text" name="username" />
         <InputBox register={register} errors={errors} objectId="number" placeholder="Phone number" type="text" name="number" />
-        <InputBox register={register} errors={errors} objectId="password" placeholder="Password" type="password" name="password" />
+        <InputBox register={register} errors={errors} objectId="password" placeholder="Password" type="password" name="password" passwordField />
         </div>
         
         </>
