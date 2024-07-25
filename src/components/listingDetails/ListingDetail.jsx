@@ -13,6 +13,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { IoShareOutline } from "react-icons/io5";
 import LoadingScreen from '../loadingScreen/LoadingScreen';
+import EmptyPage from '../utils/emptyPage/EmptyPage';
 
 
 
@@ -63,44 +64,54 @@ export default function ListingDetail({listingData,ownerData,currentUser}) {
     <div className=' absolute top-24  w-full h-full'>
      <div className=' relative flex flex-col items-center w-full h-full '>
       <div className=' w-full    bg-white py-10  px-6 md:px-0 md:pl-48 md:pr-48  '>
-        <div className=' flex flex-col gap-3  w-full h-full'>
+       {
+        (listingData!=null)? <div className=' flex flex-col gap-3  w-full h-full'>
 
-          <div className='flex justify-between items-center w-full '>
-            <h1 className=' text-2xl lg:text-4xl font-semibold'>{listingData?.locationName}</h1>
-            <div className=' flex justify-center items-center gap-8'>
-              <p onClick={()=>{
-               if(window!==undefined){
-                navigator.clipboard.writeText(window.location.href)
-                toast.success('Link copied')
-               }
+        <div className='flex justify-between items-center w-full '>
+          <h1 className=' text-2xl lg:text-4xl font-semibold'>{listingData?.locationName}</h1>
+          <div className=' flex justify-center items-center gap-8'>
+            <p onClick={()=>{
+             if(window!==undefined){
+              navigator.clipboard.writeText(window.location.href)
+              toast.success('Link copied')
+             }
 
-              }} className='cursor-pointer underline flex items-center justify-center gap-1 text-sm'>  <IoShareOutline size={17} /> 
-              Share
-              </p>
-              
-              <p onClick={toggleSaved} className='cursor-pointer flex items-center justify-center gap-1 underline text-sm'> 
-              
-              {
-                isSaved?
-                <AiFillHeart size={17} color='red' />
-                :
-                <AiOutlineHeart size={17} />
-              }
-              
-               Save</p>
-
-
-            </div>
+            }} className='cursor-pointer underline flex items-center justify-center gap-1 text-sm'>  <IoShareOutline size={17} /> 
+            Share
+            </p>
             
+            <p onClick={toggleSaved} className='cursor-pointer flex items-center justify-center gap-1 underline text-sm'> 
+            
+            {
+              isSaved?
+              <AiFillHeart size={17} color='red' />
+              :
+              <AiOutlineHeart size={17} />
+            }
+            
+             Save</p>
+
+
           </div>
-
-
-       <FirstSection listingData={listingData} />
-
-       <SecondSection listingData={listingData} currentUser={currentUser}  />
-       <ThirdSection listingData={listingData} ownerData={ownerData} currentUser={currentUser} />
-      
+          
         </div>
+
+
+     <FirstSection listingData={listingData} />
+
+     <SecondSection listingData={listingData} currentUser={currentUser}  />
+     <ThirdSection listingData={listingData} ownerData={ownerData} currentUser={currentUser} />
+    
+      </div>:<div className=' h-screen'>
+      <section className=' w-full h-max flex flex-col justify-center items-center gap-1'>
+    <h1 className=' font-bold text-2xl text-slate-800' >No data to Show</h1>
+    <p className=' font-light text-sm'>
+      Explore the best PG and rent houses in your city
+    </p>
+    </section>
+    
+      </div>
+       }
         
       </div>
 

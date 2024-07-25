@@ -7,20 +7,28 @@ async function getListing(){
     return listing
 
 } 
+
 export  async function getListingById(id){
-    const listing= await prisma.listing.findUnique({
-        where:{
-            id:id
-        }
-    })
-    const owner=await prisma.user.findUnique({
-        where:{
-            id:listing.userId
-        }
-    })
-
-
-    return [listing,owner]
+    
+   try {
+     const listing= await prisma.listing.findUnique({
+         where:{
+             id:id
+         }
+     })
+     const owner=await prisma.user.findUnique({
+         where:{
+             id:listing.userId
+         }
+     })
+ 
+ 
+     return [listing,owner]
+   } catch (error) {
+         console.log("error in getListingById",error);
+        return [null,null]
+    
+   }
 }
 
 

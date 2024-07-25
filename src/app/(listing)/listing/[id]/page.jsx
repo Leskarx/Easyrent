@@ -9,7 +9,7 @@ export default async function page({params}) {
    const [listingData,owner]= await getListingById(params.id)
   
    const user=await getUser()
-   console.log("listing detail page owner ",owner);
+   console.log("listing detail page owner.....> ",listingData,owner);
    
   return (
     

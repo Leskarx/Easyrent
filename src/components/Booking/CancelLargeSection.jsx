@@ -28,6 +28,7 @@ export default function CancelLargeSection({ setToggle, id, route, toastMessage 
       console.log("response.....>",response);
       setLoading(false);
       toast.error('Failed to cancel booking. Please try again.');
+      router.refresh();
     }
   }
 

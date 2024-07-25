@@ -12,7 +12,7 @@ export default function OtherLogin({des,setLoadingScreen}) {
     rounded-xl
     items-center   p-2'>
       <FcGoogle size={35} />
-      <p className=' font-medium text-xl '>{des}</p>
+      <p className=' font-medium text-lg lg:text-xl '>{des}</p>
     </div>
   )
 }

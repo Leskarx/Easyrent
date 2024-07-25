@@ -8,6 +8,7 @@ import { signIn} from "next-auth/react"
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 import LoadingScreen from '@/components/loadingScreen/LoadingScreen';
+import { set } from 'date-fns'
 export default function Login() {
   const router=useRouter()
   const {
@@ -26,19 +27,26 @@ export default function Login() {
   try {
     setLoading(true)
     const isLogin=await signIn("credentials",{...data,redirect:false})
-    // console.log(isLogin);
+    // console.log("login page...>",isLogin);
     if(isLogin.ok){
       toast.success("Login successfull")
       router.push("/")
       router.refresh()
-    }else{
-      toast.error("something went wrong")
+    }
+    if(isLogin.error=="CredentialsSignin"){
+      toast.error("Invalid email or password")
+      setLoading(false)
+    }else if(isLogin.ok==false){
+      toast.error("Something went wrong")
       setLoading(false)
     }
    
+   
     
   } catch (error) {
+    
     toast.error("something went wrong please refresh")
+    setLoading(false)
     
   }
    

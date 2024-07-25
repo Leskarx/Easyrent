@@ -29,31 +29,41 @@ export default function Signup() {
 
   })
   async function onSubmit(data){
-  try {
-    setLoading(true)
-    const response=await axios.post("/api/register",data)
-    const filteredData={
-      email:response.data.userData.email,
-      password:data.password
-    }
-    // console.log(filteredData);
-    const isLogin=await signIn("credentials",{...filteredData,redirect:false})
-   
-    if(isLogin.ok){
-      toast.success("successfully created a account")
+try {
+  
       setLoading(true)
-      router.push("/")
-      router.refresh()
-    }else{
-      toast.error("something went wrong")
-      setLoading(false)
-    }
-  } catch (error) {
-    setLoading(false)
-
-  //  console.log("errrorr.......",error);
-    toast.error("something wrong")
-  }   
+      const response=await axios.post("/api/register",data)
+      if(response.data.message=="email already exist"){
+        toast.error("Email already exist")
+        setLoading(false)
+        return
+      }
+      
+      const filteredData={
+        email:response.data.userData.email,
+        password:data.password
+      }
+      console.log("response data....>",response.data);
+    
+      const isLogin=await signIn("credentials",{...filteredData,redirect:false})
+     
+      if(isLogin.ok){
+        toast.success("successfully created a account")
+        setLoading(true)
+        router.push("/")
+        router.refresh()
+      }else{
+        
+        toast.error("successfully created a account but login failed...")
+        setLoading(false)
+      }
+} catch (error) {
+ 
+  toast.error("something went wrong")
+  setLoading(false)
+  
+}
+    
   }
     const footer=(
         <>
@@ -68,7 +78,7 @@ export default function Signup() {
         <div>
         <InputBox register={register} errors={errors} objectId="email" placeholder="Email" type="text" name="email" />
         <InputBox register={register} errors={errors} objectId="username" placeholder="Name" type="text" name="username" />
-        <InputBox register={register} errors={errors} objectId="number" placeholder="Phone number" type="text" name="number" />
+        <InputBox register={register} errors={errors} objectId="number" placeholder="Phone number" type="number" name="number" />
         <InputBox register={register} errors={errors} objectId="password" placeholder="Password" type="password" name="password" passwordField />
         </div>
         

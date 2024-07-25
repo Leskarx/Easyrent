@@ -24,10 +24,16 @@ export async function POST(request) {
         })
 
     } catch (error) {
+        if (error.code === "P2002") {
+            return NextResponse.json({
+                message: "email already exist"
+            })
+        }
         // console.log("error in route.js.......",error);
-        throw new Error("error in register route.js",error)
+      
 
     }
 
 
 }
+
