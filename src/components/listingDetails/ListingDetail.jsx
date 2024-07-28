@@ -19,9 +19,9 @@ import EmptyPage from '../utils/emptyPage/EmptyPage';
 
   
 
-export default function ListingDetail({listingData,ownerData,currentUser}) {
+export default function ListingDetail({listingData,ownerData,currentUser,isBooked}) {
 
-  // console.log("url..........>",window.location.href); 
+  console.log("isBooked..........>",isBooked); 
 
 
   let isFav=false

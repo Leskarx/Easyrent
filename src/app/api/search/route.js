@@ -7,7 +7,8 @@ async function searchByLocation(location){
         location: {
             equals: location,
             mode: 'insensitive'
-        }
+        },
+        available: true
     }
 });
 return data;
@@ -16,7 +17,8 @@ return data;
 async function searchByPincode(pinCode){
     let data=await prisma.listing.findMany({
         where :{
-            pinCode:pinCode
+            pinCode:pinCode,
+            available:true
         }
     })
     return data;
@@ -40,7 +42,10 @@ export async function POST(request){
       let combineResult = await prisma.listing.aggregateRaw({
           pipeline: [
               {
-                  $match: { pinCode: pinCode }
+                  $match: { 
+                    pinCode: pinCode,
+                    available: true
+                }
               },
               // Using $facet to handle conditional logic
               {

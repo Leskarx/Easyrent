@@ -8,9 +8,10 @@ export default function AddphotosListing({setValue,id,getValues}) {
   const [imagePresent,setImagePresent]=useState(false)
   const [src,setSrc]=useState("")
  
-     function handleUpload(results){
-         setSrc(results?.info?.secure_url)
-         setImagePresent(true)
+     async function handleUpload(results){
+      const newSrc = results?.info?.secure_url;
+      setSrc(newSrc);
+      setImagePresent(true);
          const images=getValues(id)
          if(images==undefined||images.length==0){
             setValue(id,[results?.info?.secure_url])
@@ -18,6 +19,16 @@ export default function AddphotosListing({setValue,id,getValues}) {
          }else{
             setValue(id,[...getValues(id),results?.info?.secure_url])
 
+         }
+         const oldImageId = src?.split('/').pop().split('.')[0];
+         if (oldImageId) {
+           await fetch('/api/deleteImage', {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/json',
+             },
+             body: JSON.stringify({ imageId: oldImageId }),
+           });
          }
         
 
