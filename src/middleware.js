@@ -14,7 +14,7 @@ export async function middleware(request) {
         return NextResponse.redirect(new URL('/', request.url))
     }else if(!token && (
     
-        url.pathname.startsWith("/listing")||
+        
         url.pathname.startsWith("/addproperty")||
         url.pathname.startsWith("/mybooking")||
         url.pathname.startsWith("/profile")||
@@ -31,7 +31,6 @@ export const config = {
         "/profile",
         "/login",
         "/signup",     
-        "/listing/:id*",
         "/addproperty",
         "/mybooking",
         "/manageproperties"

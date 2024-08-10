@@ -13,19 +13,21 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { IoShareOutline } from "react-icons/io5";
 import LoadingScreen from '../loadingScreen/LoadingScreen';
+import { useRouter } from 'next/navigation';
 import EmptyPage from '../utils/emptyPage/EmptyPage';
 
 
 
   
 
-export default function ListingDetail({listingData,ownerData,currentUser,isBooked}) {
+export default function ListingDetail({listingData,ownerData,currentUser}) {
+  const router=useRouter()
 
-  console.log("isBooked..........>",isBooked); 
+  // console.log("isBooked..........>",isBooked); 
 
 
   let isFav=false
-  currentUser.favroiteIds.find((id)=>(id==listingData.id)?isFav=true:isFav=false)
+  currentUser?.favroiteIds?.find((id)=>(id==listingData.id)?isFav=true:isFav=false)
 
   const [isSaved,setIsSaved]=useState(isFav)
   const [loading,setIsloading]=useState(false)
@@ -33,8 +35,13 @@ export default function ListingDetail({listingData,ownerData,currentUser,isBooke
   const [toggle,setToggle]=useState(false)
   async function toggleSaved(){
     setIsloading(true)
+    if(!currentUser){
+      router.push('/login')
+      return;
+    }
+    
     const res=await axios.post('/api/toggleSave',{listingId:listingData.id,
-      userId:currentUser.id
+      userId:currentUser?.id
     })
     console.log("res............>",res.data);
     if(res.data.success && !isSaved){

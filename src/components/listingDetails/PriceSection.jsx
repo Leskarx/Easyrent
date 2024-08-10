@@ -3,8 +3,10 @@ import React, { useEffect } from 'react'
 import Button from '../utils/Button/Button'
 import { useState } from 'react';
 import LargeBookingSection from './LargeBookingSection';
+import { useRouter } from 'next/navigation';
 
 export default function PriceSection({listingData,currentUser}) {
+  const router=useRouter()
   const [islarge, setislarge] = useState(false)
   const [date, setDate] = useState(null);
   useEffect(()=>{
@@ -12,6 +14,10 @@ export default function PriceSection({listingData,currentUser}) {
   },[islarge])
 
     function toggleLarge(){
+      if(!currentUser){
+        router.push('/login')
+        return;
+      }
       setislarge((prev)=>!prev)
         // console.log("book now clicked");
     }

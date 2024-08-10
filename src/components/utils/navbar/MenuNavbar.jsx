@@ -30,8 +30,8 @@ user?
 // without login
  <main className=' flex flex-col gap-2'>
 <NavbarMenuText Title="Sign up" link='/signup'/>
-    <NavbarMenuText Title="Log in" link='login'/>
-    <NavbarMenuText Title="About us" link='aboutus'/>
+    <NavbarMenuText Title="Log in" link='/login'/>
+    <NavbarMenuText Title="About us" link='/aboutus'/>
 </main>
 
    }
