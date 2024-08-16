@@ -42,7 +42,12 @@ export default function Card2({title,src,price,location,isAvilable,id}) {
 <MdDelete size={22} color='red'/>
 </div>
 
-<div title='Edit' className=' bg-black rounded-full p-1  '>
+<div onClick={
+  ()=>{
+    setIsloading(true)
+    router.push(`/edit/${id}`)
+  }
+} title='Edit' className=' bg-black rounded-full p-1  '>
 <MdModeEdit size={22} color='red'/>
 </div>
 

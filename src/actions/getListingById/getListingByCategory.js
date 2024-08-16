@@ -4,6 +4,9 @@ export default async function getListingBycategory(category){
         where:{
             type:category,
             available:true
+        },
+        orderBy: {
+            createdAt: 'desc' // or 'updatedAt' if you want to order by the update timestamp
         }
     });
     // console.log("listing data",listing);

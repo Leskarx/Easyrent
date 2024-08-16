@@ -4,11 +4,16 @@ async function getListing() {
         where: {
             available: true
         },
-        take: 6
+        take: 6,
+        orderBy: {
+            createdAt: 'desc' // or 'updatedAt' if you want to order by the update timestamp
+        }
     });
     // console.log("listing data", listing);
     return listing;
 }
+
+
 
 export  async function getListingById(id){
     
