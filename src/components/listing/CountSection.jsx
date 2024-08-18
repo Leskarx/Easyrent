@@ -2,15 +2,15 @@ import React, { useEffect } from 'react'
 import Button from './Button'
 
 
-export default function CountSection({id,setFormValue,label}) {
+export default function CountSection({id,setFormValue,label,defaultValue}) {
     
     useEffect(()=>{
-        setFormValue(id,0)
+        setFormValue(id,defaultValue?.roomCount||0)
     
     },[])
 
 
-    const [value, setValue] = React.useState(0)
+    const [value, setValue] = React.useState(defaultValue?.[id]||0)
     function increment(){
         setValue(value+1)
         setFormValue(id,value+1)

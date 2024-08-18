@@ -27,7 +27,7 @@ export default function ListingDetail({listingData,ownerData,currentUser}) {
 
 
   let isFav=false
-  currentUser?.favroiteIds?.find((id)=>(id==listingData.id)?isFav=true:isFav=false)
+  currentUser?.favroiteIds?.find((id)=>(id==listingData?.id)?isFav=true:isFav=false)
 
   const [isSaved,setIsSaved]=useState(isFav)
   const [loading,setIsloading]=useState(false)

@@ -14,6 +14,14 @@ export default async function getListingBycategory(category){
 
 } 
 
+export function getListingById(id){
+    return prisma.listing.findUnique({
+        where:{
+            id:id
+        }
+    })
+}
+
 
 
 

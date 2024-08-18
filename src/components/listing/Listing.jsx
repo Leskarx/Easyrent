@@ -15,7 +15,7 @@ import Footer from '../mainBackground/Footer'
 
 
 
-export default function Listing({user}) {
+export default function Listing({user,defaultValue}) {
   const [loadingScreen,setLoadingScreen]=React.useState(false)
   const router=useRouter()
 
@@ -59,7 +59,8 @@ function customGetValues(id){
  
 
  async function onSubmit(data){
-  console.log("data in listing page.... ->>>>>",data)
+  
+  // console.log("data in listing page.... ->>>>>",data)
  
 
 
@@ -68,23 +69,57 @@ function customGetValues(id){
   if(
     data.mainImageSrc==null
   ){
+    // console.log("main image ...........>",data.mainImageSrc);
     setLoading(false)
     return toast.error("Please add main image")
   }
-  const response=await axios.post('/api/owner/listing',data)
+  if(!defaultValue){
+    const response=await axios.post('/api/owner/listing',data)
+    if(response.data.success){
+      localStorage.clear()
+      toast.success(" successfully added ")
+      router.push('/manageproperties')
+      
   
-  if(response.data.success){
-    toast.success(" successfully added ")
-    router.push('/manageproperties')
+    }
+    else{
+      setLoading(false)
+      
     
+       toast.error("unable to add ")
+    
+    }
+  
+}
 
-  }else{
+if(defaultValue){
+  setLoading(false)
+  toast.error("Under Development")
+  console.log("data in edit page............ ->>>>>",data)
+  return;
+  const response=await axios.put('/api/owner/listing',data)
+  if(response.data.success){
+    localStorage.clear()
+    toast.success(" successfully updated ")
+    router.push('/manageproperties')
+  
+  }
+  else{
     setLoading(false)
     
 
      toast.error("unable to add ")
 
   }
+}
+
+
+
+
+
+  
+  
+ 
 
 
   }
@@ -117,8 +152,8 @@ function customGetValues(id){
   </div>
 
     <main className='   h-[85%] w-full flex md:flex-row flex-col gap-10 md:gap-0 '>
-    <RightSection register={register} setValue={customSetValue}/>
-    <LeftSection register={register} setValue={customSetValue} getValues={customGetValues} />
+    <RightSection defaultValue={defaultValue} register={register} setValue={customSetValue}/>
+    <LeftSection defaultValue={defaultValue} register={register} setValue={customSetValue} getValues={customGetValues} />
       
   </main>
       <section className=' py-6 w-full h-[25%]   flex justify-center items-end '>
@@ -151,7 +186,6 @@ function customGetValues(id){
     
   )
 }
-
 
 
 
