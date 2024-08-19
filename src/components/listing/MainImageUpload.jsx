@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { CldUploadWidget } from 'next-cloudinary';
 import Image from 'next/image';
 
-export default function MainImageUpload({ setValue }) {
-  const [imagePresent, setImagePresent] = useState(false);
-  const [src, setSrc] = useState("");
+export default function MainImageUpload({ setValue,defaultValue }) {
+  const [imagePresent, setImagePresent] = useState((defaultValue!=null)?true:false);
+  const [src, setSrc] = useState(defaultValue);
+  console.log("src in main image upload....",src)
 
   useEffect(() => {
     const existingImageSrc = localStorage.getItem("mainImageSrc");

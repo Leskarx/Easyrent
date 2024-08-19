@@ -73,15 +73,15 @@ const electricitySupplyOption=[{
         <SelectTag  selectedValue={defaultValue} option={bathroomTypeOption} id="bathroomType" label={"Select bathroom type"} setValue={setValue}/>
       </section>
 
-       <MainImageUpload setValue={setValue}/>
+       <MainImageUpload defaultValue={defaultValue?.mainImageSrc} setValue={setValue}/>
       <p className=' font-semibold'>
           Add photos
         </p>
    <section className=' gap-3 flex w-max h-max   '>
-    <AddphotosListing setValue={setValue} getValues={getValues} id="imagesSrc"/>
-    <AddphotosListing setValue={setValue} getValues={getValues} id="imagesSrc"/>
-    <AddphotosListing setValue={setValue} getValues={getValues} id="imagesSrc"/>
-    <AddphotosListing setValue={setValue} getValues={getValues} id="imagesSrc"/>
+    <AddphotosListing defaultValue={defaultValue?.imagesSrc[0]} setValue={setValue} getValues={getValues} id="imagesSrc"/>
+    <AddphotosListing defaultValue={defaultValue?.imagesSrc[1]} setValue={setValue} getValues={getValues} id="imagesSrc"/>
+    <AddphotosListing defaultValue={defaultValue?.imagesSrc[2]} setValue={setValue} getValues={getValues} id="imagesSrc"/>
+    <AddphotosListing defaultValue={defaultValue?.imagesSrc[3]} setValue={setValue} getValues={getValues} id="imagesSrc"/>
     
 
    </section>

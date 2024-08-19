@@ -66,14 +66,15 @@ function customGetValues(id){
 
   
   setLoading(true)
-  if(
-    data.mainImageSrc==null
-  ){
-    // console.log("main image ...........>",data.mainImageSrc);
-    setLoading(false)
-    return toast.error("Please add main image")
-  }
+  // if(
+  //   data.mainImageSrc==null
+  // ){
+  //   // console.log("main image ...........>",data.mainImageSrc);
+  //   setLoading(false)
+  //   return toast.error("Please add main image")
+  // }
   if(!defaultValue){
+   
     const response=await axios.post('/api/owner/listing',data)
     if(response.data.success){
       localStorage.clear()
@@ -93,12 +94,17 @@ function customGetValues(id){
 }
 
 if(defaultValue){
-  setLoading(false)
-  toast.error("Under Development")
-  console.log("data in edit page............ ->>>>>",data)
-  return;
-  const response=await axios.put('/api/owner/listing',data)
-  if(response.data.success){
+  data={
+    ...data,
+    id:defaultValue?.id
+  }
+  // setLoading(false)
+  // toast.error("Under Development")
+  // console.log("data in edit page............ ->>>>>",data)
+  // return;
+  const response=await axios.post('/api/edit',data)
+  console.log("data in edit page............ ->>>>>",response)
+    if(response.status==200){
     localStorage.clear()
     toast.success(" successfully updated ")
     router.push('/manageproperties')
@@ -159,7 +165,7 @@ if(defaultValue){
       <section className=' py-6 w-full h-[25%]   flex justify-center items-end '>
       
     <section className=' w-full md:w-[16%]'>
-    <Button isLoading={loading} handleSubmit={handleSubmit(onSubmit)} buttonTitle="Add Now"/>
+    <Button isLoading={loading} handleSubmit={handleSubmit(onSubmit)} buttonTitle={`${defaultValue!=null?"Update":"Add Now"}`}/>
     </section>
          
       </section>

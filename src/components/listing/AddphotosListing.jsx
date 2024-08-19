@@ -4,9 +4,9 @@ import { CldUploadWidget } from 'next-cloudinary';
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function AddphotosListing({setValue,id,getValues}) {
-  const [imagePresent,setImagePresent]=useState(false)
-  const [src,setSrc]=useState("")
+export default function AddphotosListing({setValue,id,getValues,defaultValue}) {
+  const [imagePresent, setImagePresent] = useState((defaultValue!=null)?true:false);
+  const [src, setSrc] = useState(defaultValue);
  
      async function handleUpload(results){
       const newSrc = results?.info?.secure_url;
