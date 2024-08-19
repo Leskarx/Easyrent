@@ -9,10 +9,10 @@ export default function ProfileSectionNavbar({user}) {
   const [open, setOpen] = useState(false);
   return (
     <>
-    <main className='relative  bg-white z-[500]  active:scale-105 hover:shadow-2xl transition shadow-black w-[85.6px] text-black rounded-full cursor-pointer h-[48px] p-2  '>
-    <div onClick={()=>{
+    <main onClick={()=>{
           setOpen(!open)
-     }} >
+     }} className='relative  bg-white z-[500]  active:scale-105 hover:shadow-2xl transition shadow-black w-[85.6px] text-black rounded-full cursor-pointer h-[48px] p-2  '>
+    <div  >
     <section className=' w-full h-full flex justify-center gap-2 items-center'>
     <VscThreeBars size={18} />
     <NavImage user={user}/>
