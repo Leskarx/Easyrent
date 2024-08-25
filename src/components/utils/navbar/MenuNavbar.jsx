@@ -16,7 +16,7 @@ user?
 <NavbarMenuText Title="My favourite" link='/myfavourite'/>
 <NavbarMenuText Title="My booking" link='/mybooking'/>
 <NavbarMenuText Title="Manage your properties" link='/manageproperties'/>
-<NavbarMenuText Title="About us" link='/aboutus'/>
+<NavbarMenuText Title="About us" link='https://pages.theease.rent/about'/>
 
 <div onClick={ ()=>{
     signOut()
@@ -31,7 +31,7 @@ user?
  <main className=' flex flex-col gap-2'>
 <NavbarMenuText Title="Sign up" link='/signup'/>
     <NavbarMenuText Title="Log in" link='/login'/>
-    <NavbarMenuText Title="About us" link='/aboutus'/>
+    <NavbarMenuText Title="About us" link='https://pages.theease.rent/about'/>
 </main>
 
    }

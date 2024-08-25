@@ -130,7 +130,7 @@ function ShowMenu({user,SetMenuloading,setMenu=()=>{}}){
         <MenuText SetMenuloading={SetMenuloading} link='/mybooking' text="My booking"/>
         <MenuText SetMenuloading={SetMenuloading} link='/addproperty' text="Add properties"/>
         <MenuText SetMenuloading={SetMenuloading} link='/manageproperties' text="Manage properties"/>
-        <MenuText SetMenuloading={SetMenuloading} link='/aboutus' text="About us"/>
+        <MenuText SetMenuloading={SetMenuloading} link='https://pages.theease.rent/about' text="About us"/>
         <div onClick={()=>{
 signOut()
         }}>
@@ -151,7 +151,7 @@ signOut()
  <section className=' flex flex-col gap-6 pt-4'>
  <MenuText SetMenuloading={SetMenuloading} link='/signup' text="Sign Up"/>
         <MenuText SetMenuloading={SetMenuloading} link='/login' text="Login"/>
-        <MenuText SetMenuloading={SetMenuloading} link='/aboutus' text="About us"/>
+        <MenuText SetMenuloading={SetMenuloading} link='https://pages.theease.rent/about' text="About us"/>
  </section>
       
 
